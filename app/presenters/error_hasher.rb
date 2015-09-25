@@ -6,6 +6,18 @@ class ErrorHasher < Struct.new(:error)
   }.freeze
 
   def unsanitized_hash
+    if error.is_a?(VCAP::Error::V3error)
+      return {
+        description: 'you done goofed',
+        errors: [
+          {
+            resource: 'app',
+           messages:  error.error_holding_thingy.errors.full_messages
+          }
+        ]
+      }
+    end
+
     return UNKNOWN_ERROR_HASH.dup if error.nil?
 
     payload = {
@@ -24,6 +36,18 @@ class ErrorHasher < Struct.new(:error)
   end
 
   def sanitized_hash
+    if error.is_a?(VCAP::Error::V3error)
+      return {
+        description: 'you done goofed',
+        errors: [
+                       {
+                         resource: 'app',
+                         messages:  error.error_holding_thingy.errors.full_messages
+                       }
+                     ]
+      }
+    end
+
     return UNKNOWN_ERROR_HASH unless api_error? || services_error?
     unsanitized_hash.keep_if { |k, _| allowed_keys.include? k }
   end

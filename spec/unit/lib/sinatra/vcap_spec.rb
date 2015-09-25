@@ -48,7 +48,13 @@ describe 'Sinatra::VCAP', type: :controller do
     end
 
     get '/vcap_error' do
-      e = VCAP::Errors::ApiError.new_from_details('MessageParseError', 'some message')
+      message =VCAP::CloudController::AppCreateMessage.new
+      message.valid?
+      e = VCAP::Error::V3error.new
+
+      e.error_holding_thingy = message
+
+
       e.set_backtrace(['/vcap:1', '/error:2'])
       raise e
     end
@@ -147,6 +153,8 @@ describe 'Sinatra::VCAP', type: :controller do
 
     it 'should return structure' do
       decoded_response = MultiJson.load(last_response.body)
+      p decoded_response
+
       expect(decoded_response['code']).to eq(1001)
       expect(decoded_response['description']).to eq('Request invalid due to parse error: some message')
 

@@ -63,6 +63,12 @@ module VCAP::CloudController
 
       request = parse_and_validate_json(body)
       message = AppCreateMessage.create_from_http_request(request)
+      message.valid?
+      er= VCAP::Error::V3error.new
+      er.error_holding_thingy = message
+      raise er
+
+
       unprocessable!(message.errors.full_messages) unless message.valid?
 
       buildpack_validator = BuildpackRequestValidator.new({ buildpack: message.buildpack })

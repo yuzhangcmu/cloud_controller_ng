@@ -3,6 +3,12 @@ require 'cloud_controller/rest_controller/messages'
 require 'cloud_controller/rest_controller/routes'
 require 'cloud_controller/security/access_context'
 
+module VCAP::Error
+  class V3error < StandardError
+    attr_accessor :error_holding_thingy
+  end
+end
+
 module VCAP::CloudController::RestController
   # The base class for all api endpoints.
   class BaseController
