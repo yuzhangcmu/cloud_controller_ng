@@ -11,7 +11,7 @@ module Sinatra
   module VCAP
     module Helpers
       def varz
-#        ::VCAP::Component.varz[:vcap_sinatra]
+        ::VCAP::Component.varz[:vcap_sinatra]
       end
 
       def in_test_mode?
