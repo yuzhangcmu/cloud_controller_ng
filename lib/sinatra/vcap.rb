@@ -1,4 +1,4 @@
-require 'vcap/component'
+# require 'vcap/component'
 require 'vcap/ring_buffer'
 require 'vcap/rest_api'
 require 'vcap/request'
@@ -11,7 +11,7 @@ module Sinatra
   module VCAP
     module Helpers
       def varz
-        ::VCAP::Component.varz[:vcap_sinatra]
+#        ::VCAP::Component.varz[:vcap_sinatra]
       end
 
       def in_test_mode?
@@ -125,10 +125,10 @@ module Sinatra
     private
 
     def self.init_varz
-      ::VCAP::Component.varz.synchronize do
-        ::VCAP::Component.varz[:vcap_sinatra] ||= {}
-        ::VCAP::Component.varz[:vcap_sinatra][:recent_errors] = ::VCAP::RingBuffer.new(50)
-      end
+      # ::VCAP::Component.varz.synchronize do
+      #   ::VCAP::Component.varz[:vcap_sinatra] ||= {}
+      #   ::VCAP::Component.varz[:vcap_sinatra][:recent_errors] = ::VCAP::RingBuffer.new(50)
+      # end
     end
   end
 end

@@ -101,7 +101,7 @@ module VCAP::CloudController
           builder = RackAppBuilder.new
           app     = builder.build(@config, request_metrics)
 
-          start_thin_server(app)
+        #  start_thin_server(app)
 
           router_registrar.register_with_router
         rescue => e
@@ -140,7 +140,7 @@ module VCAP::CloudController
     end
 
     def stop!
-      stop_thin_server
+ #     stop_thin_server
       logger.info('Stopping EventMachine')
       EM.stop
     end
