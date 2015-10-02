@@ -12,6 +12,7 @@ require 'cloud_controller/dea/sub_system'
 require 'cloud_controller/rack_app_builder'
 require 'cloud_controller/metrics/periodic_updater'
 require 'cloud_controller/metrics/request_metrics'
+require 'rack'
 
 require_relative 'seeds'
 require_relative 'message_bus_configurer'
@@ -101,7 +102,7 @@ module VCAP::CloudController
           builder = RackAppBuilder.new
           app     = builder.build(@config, request_metrics)
 
-        #  start_thin_server(app)
+          start_thin_server(app)
 
           router_registrar.register_with_router
         rescue => e
@@ -190,20 +191,22 @@ module VCAP::CloudController
     end
 
     def start_thin_server(app)
-      if @config[:nginx][:use_nginx]
-        @thin_server = Thin::Server.new(@config[:nginx][:instance_socket], signals: false)
-      else
-        @thin_server = Thin::Server.new(@config[:external_host], @config[:external_port], signals: false)
-      end
+	Rack::Handler::WEBrick.run app
 
-      @thin_server.app = app
-      trap_signals
+#      if @config[:nginx][:use_nginx]
+#        @thin_server = Thin::Server.new(@config[:nginx][:instance_socket], signals: false)
+#      else
+#        @thin_server = Thin::Server.new(@config[:external_host], @config[:external_port], signals: false)
+#      end
+
+ #     @thin_server.app = app
+ #     trap_signals
 
       # The routers proxying to us handle killing inactive connections.
       # Set an upper limit just to be safe.
-      @thin_server.timeout = @config[:request_timeout_in_seconds]
-      @thin_server.threaded = true
-      @thin_server.start!
+ #     @thin_server.timeout = @config[:request_timeout_in_seconds]
+ #     @thin_server.threaded = true
+ #     @thin_server.start!
     end
 
     def stop_thin_server
