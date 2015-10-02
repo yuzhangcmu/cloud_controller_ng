@@ -191,7 +191,7 @@ module VCAP::CloudController
     end
 
     def start_thin_server(app)
-	Rack::Handler::WEBrick.run app
+	Rack::Handler::WEBrick.run(app, Host: '0.0.0.0', Port: 9022) 
 
 #      if @config[:nginx][:use_nginx]
 #        @thin_server = Thin::Server.new(@config[:nginx][:instance_socket], signals: false)
