@@ -9,12 +9,14 @@ module VCAP::CloudController
     class RoutePortTaken < ValidationError
     end
 
-    attr_reader :domain_guid, :port, :routing_api_client
+    attr_reader :domain_guid, :port, :routing_api_client, :host, :path
 
-    def initialize(routing_api_client, domain_guid, port)
-      @domain_guid = domain_guid
-      @port = port
+    def initialize(routing_api_client, domain_guid, route_attrs)
       @routing_api_client = routing_api_client
+      @domain_guid = domain_guid
+      @port = route_attrs['port']
+      @host = route_attrs['host']
+      @path = route_attrs['path']
     end
 
     def validate
@@ -25,9 +27,13 @@ module VCAP::CloudController
 
       if port.nil?
         if !domain.router_group_guid.nil?
-          raise RouteInvalid.new('Router groups are only supported for TCP routes.')
+          raise RouteInvalid.new('Port is required, as domain belongs to a TCP router group.')
         end
       else
+        if !domain.router_group_guid.nil? && (!host.blank? || path)
+          raise RouteInvalid.new('Host and path are not supported, as domain belongs to a TCP router group.')
+        end
+
         if domain.router_group_guid.nil?
           raise RouteInvalid.new('Port is supported for domains of TCP router groups only.')
         end

@@ -106,8 +106,7 @@ module VCAP::CloudController
       domain_guid = request_attrs['domain_guid']
       return if domain_guid.nil?
 
-      port = request_attrs['port']
-      validate_tcp_route(domain_guid, port)
+      validate_tcp_route(domain_guid)
     end
 
     def before_update(route)
@@ -115,8 +114,7 @@ module VCAP::CloudController
 
       return if request_attrs['app']
 
-      port = request_attrs['port']
-      validate_tcp_route(route.domain.guid, port) if port != route.port
+      validate_tcp_route(route.domain.guid) if request_attrs['port'] != route.port
     end
 
     define_messages
@@ -125,8 +123,8 @@ module VCAP::CloudController
 
   private
 
-  def validate_tcp_route(domain_guid, port)
-    TcpRouteValidator.new(@routing_api_client, domain_guid, port).validate
+  def validate_tcp_route(domain_guid)
+    TcpRouteValidator.new(@routing_api_client, domain_guid, assemble_route_attrs).validate
   rescue TcpRouteValidator::ValidationError => e
     raise Errors::ApiError.new_from_details(e.class.name.demodulize, e.message)
   rescue RoutingApi::Client::RoutingApiUnavailable
@@ -145,5 +143,12 @@ module VCAP::CloudController
     elsif path_error.include?(:invalid_path)
       return Errors::ApiError.new_from_details('PathInvalid', attributes['path'])
     end
+  end
+
+  def assemble_route_attrs
+    port = request_attrs['port']
+    host = request_attrs['host']
+    path = request_attrs['path']
+    { 'port' => port, 'host' => host, 'path' => path }
   end
 end
