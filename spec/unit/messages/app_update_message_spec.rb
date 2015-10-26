@@ -7,7 +7,13 @@ module VCAP::CloudController
       let(:body) {
         {
           'name' => 'some-name',
-          'buildpack' => 'some-buildpack',
+          'lifecycle' => {
+            'type' => 'buildpack',
+            'data' => {
+              'buildpack' => 'some-buildpack',
+              'stack' => 'some-stack'
+            }
+          },
           'environment_variables' => {
             'ENVVAR' => 'env-val'
           }
@@ -19,7 +25,8 @@ module VCAP::CloudController
 
         expect(message).to be_a(AppUpdateMessage)
         expect(message.name).to eq('some-name')
-        expect(message.buildpack).to eq('some-buildpack')
+        expect(message.lifecycle['data']['buildpack']).to eq('some-buildpack')
+        expect(message.lifecycle['data']['stack']).to eq('some-stack')
         expect(message.environment_variables).to eq({ 'ENVVAR' => 'env-val' })
       end
 
@@ -27,7 +34,7 @@ module VCAP::CloudController
         message = AppUpdateMessage.create_from_http_request(body)
 
         expect(message.requested?(:name)).to be_truthy
-        expect(message.requested?(:buildpack)).to be_truthy
+        expect(message.requested?(:lifecycle)).to be_truthy
         expect(message.requested?(:environment_variables)).to be_truthy
       end
     end
@@ -66,14 +73,89 @@ module VCAP::CloudController
         end
       end
 
-      context 'when a buildpack is not a string' do
-        let(:params) { { buildpack: 45 } }
+      describe 'lifecycle' do
+        context 'when lifecycle is provided' do
+          let(:params) do
+            {
+              name: 'some_name',
+              lifecycle: {
+                type: 'buildpack',
+                data: {
+                  buildpack: 'java',
+                  stack: 'cflinuxfs2'
+                }
+              }
+            }
+          end
 
-        it 'is not valid' do
-          message = AppUpdateMessage.new(params)
+          it 'is valid' do
+            message = AppUpdateMessage.new(params)
+            expect(message).to be_valid
+          end
+        end
 
-          expect(message).not_to be_valid
-          expect(message.errors_on(:buildpack)).to include('must be a string')
+        context 'when lifecycle data is provided' do
+          let(:params) do
+            {
+              lifecycle: {
+                type: 'buildpack',
+                data: {
+                  buildpack: 123,
+                  stack: 'fake-stack'
+                }
+              }
+            }
+          end
+
+          it 'must provide a valid buildpack value' do
+            message = AppUpdateMessage.new(params)
+            expect(message).not_to be_valid
+            expect(message.errors_on(:lifecycle)).to include('Buildpack must be a string')
+          end
+
+          it 'must provide a valid stack name' do
+            message = AppUpdateMessage.new(params)
+            expect(message).not_to be_valid
+            expect(message.errors_on(:lifecycle)).to include('Stack must exist in our DB')
+          end
+        end
+
+        context 'when data is not provided' do
+          let(:params) do { lifecycle: { type: 'buildpack' } } end
+
+          it 'is not valid' do
+            message = AppUpdateMessage.new(params)
+            expect(message).not_to be_valid
+            expect(message.errors_on(:lifecycle_data)).to include('must be a hash')
+            expect(message.errors[:lifecycle]).to include('Data must be present')
+          end
+        end
+
+        context 'when lifecycle data type is not valid' do
+          let(:params) do { lifecycle: { data: {}, type: { subhash: 'woah!' } } } end
+
+          it 'is not valid' do
+            message = AppUpdateMessage.new(params)
+
+            expect(message).not_to be_valid
+            expect(message.errors_on(:lifecycle_type)).to include('is not included in the list')
+          end
+        end
+
+        context 'when lifecycle is not provided' do
+          let(:params) do
+            {
+              name: 'some_name',
+            }
+          end
+
+          it 'defaults to buildpack' do
+            message = AppUpdateMessage.new(params)
+            expect(message).to be_valid
+
+            expect(message.lifecycle[:type]).to eq('buildpack')
+            expect(message.lifecycle[:data][:stack]).to eq(Stack.default.name)
+          end
         end
       end
     end

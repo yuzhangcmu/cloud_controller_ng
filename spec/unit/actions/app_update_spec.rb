@@ -63,8 +63,8 @@ module VCAP::CloudController
         expect(app_model.buildpack).to eq('http://original.com')
       end
 
-      it 'updates the apps buildpack' do
-        message = AppUpdateMessage.new({ buildpack: 'http://new-buildpack.url' })
+      it 'updates the apps lifecycle' do
+        message = AppUpdateMessage.new({ lifecycle: 'http://new-buildpack.url' })
 
         expect(app_model.name).to eq('original name')
         expect(app_model.environment_variables).to eq({ 'original' => 'value' })
