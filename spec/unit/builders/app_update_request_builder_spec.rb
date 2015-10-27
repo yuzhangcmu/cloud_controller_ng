@@ -1,23 +1,22 @@
 require 'spec_helper'
-require 'builders/app_create_request_builder'
+require 'builders/app_update_request_builder'
 
 module VCAP::CloudController
-  describe AppCreateRequestBuilder do
-    let(:request_builder) { AppCreateRequestBuilder.new }
+  describe AppUpdateRequestBuilder do
+    let(:request_builder) { AppUpdateRequestBuilder.new }
     context 'lifecycle' do
-      let(:default_buildpack) { nil }
-      let(:default_stack) { Stack.default.name }
+      let(:app_model) { AppModel.make }
+      let!(:app_lifecycle_data) { BuildpackLifecycleDataModel.make(app: app_model) }
+      let(:app_buildpack) { app_lifecycle_data.buildpack }
+      let(:app_stack) { app_lifecycle_data.stack }
 
       it 'does not modify the passed-in params' do
         params = {foo: 'bar'}
-
-        request = request_builder.build(params)
+        request = request_builder.build(params, app_lifecycle_data)
 
         expect(request).to_not eq(params)
         expect(params).to eq(foo: 'bar')
       end
-
-      let(:stack) { Stack.make(name: 'some-valid-stack') }
 
       context 'when the lifecycle type is buildpack' do
         let(:params) {
@@ -28,55 +27,43 @@ module VCAP::CloudController
             }
           }
         }
+        let(:built_data) { request_builder.build(params, app_lifecycle_data)['lifecycle']['data'] }
 
         context 'and lifecycle data is complete' do
           let(:lifecycle_data) { { 'buildpack' => 'cool-buildpack', 'stack' => 'cool-stack' } }
 
           it 'uses the user-specified lifecycle data' do
-            expect(request_builder.build(params)['lifecycle']['data']).to eq(lifecycle_data)
+            expect(built_data).to eq(lifecycle_data)
           end
         end
 
         context 'and lifecycle data is incomplete' do
+
+
           context 'buildpack is missing' do
             let(:lifecycle_data) { {'stack' => 'my-stack'} }
 
-            it 'uses the user-specified stack and the default buildpack' do
-              expect(request_builder.build(params)['lifecycle']['data']).to eq('buildpack' => default_buildpack, 'stack' => 'my-stack')
+            it 'uses the user-specified stack and the app buildpack' do
+              expect(built_data).to eq('buildpack' => app_buildpack, 'stack' => 'my-stack')
             end
           end
 
           context 'stack is missing' do
             let(:lifecycle_data) { {'buildpack' => 'my-buildpack'} }
 
-            it 'uses the default stack and specified buildpack' do
-              expect(request_builder.build(params)['lifecycle']['data']).to eq('buildpack' => 'my-buildpack', 'stack' => Stack.default.name)
+            it 'uses the app stack and user specified buildpack' do
+              expect(built_data).to eq('buildpack' => 'my-buildpack', 'stack' => app_stack)
             end
           end
 
           context 'when lifecycle is provided but data is empty' do
             let(:lifecycle_data) { {} }
 
-            it 'fills in the default data hash' do
-              expect(request_builder.build(params)['lifecycle']['data']).to eq('buildpack' => default_buildpack, 'stack' => Stack.default.name)
+            it 'fills in app lifecycle data' do
+              expect(built_data).to eq('buildpack' => app_buildpack, 'stack' => app_stack)
             end
           end
         end
-      end
-
-      context 'when the lifecycle type is not buildpack' do
-        let(:params) {
-            {
-              'lifecycle' => {
-                'type' => 'cool-type',
-                'data' => { 'cool' => 'data' }
-              }
-            }
-        }
-
-        it 'uses the provided data' do
-            expect(request_builder.build(params)['lifecycle']['data']).to eq({'cool' => 'data'})
-          end
       end
 
       context 'when the user does not request the lifecycle' do
@@ -95,14 +82,14 @@ module VCAP::CloudController
             'lifecycle' => {
               'type' => 'buildpack',
               'data' => {
-                'buildpack' => default_buildpack,
-                'stack' => default_stack
+                'buildpack' => app_buildpack,
+                'stack' => app_stack
               }
             }
           }
         }
         it 'fills in everything' do
-          assembled_request = request_builder.build(params)
+          assembled_request = request_builder.build(params, app_lifecycle_data)
           expect(assembled_request).to eq(desired_assembled_request)
         end
       end
@@ -130,7 +117,7 @@ module VCAP::CloudController
         end
 
         it 'does not replace anything' do
-          assembled_request = request_builder.build(params)
+          assembled_request = request_builder.build(params, app_lifecycle_data)
           expect(assembled_request).to eq(desired_assembled_request)
         end
       end
@@ -149,7 +136,7 @@ module VCAP::CloudController
         end
 
         it 'does not replace anything' do
-          expect(request_builder.build(params)['lifecycle']).to eq('foo' => 'bar', 'data' => {'cool' => 'data'})
+          expect(request_builder.build(params, app_lifecycle_data)['lifecycle']).to eq('foo' => 'bar', 'data' => {'cool' => 'data'})
         end
       end
     end

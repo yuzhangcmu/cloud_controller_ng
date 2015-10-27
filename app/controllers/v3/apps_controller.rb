@@ -16,6 +16,7 @@ require 'messages/app_update_message'
 require 'messages/buildpack_request_validator'
 require 'messages/apps_list_message'
 require 'builders/app_create_request_builder'
+require 'builders/app_update_request_builder'
 
 module VCAP::CloudController
   class AppsV3Controller < RestController::BaseController
@@ -84,13 +85,15 @@ module VCAP::CloudController
       check_write_permissions!
 
       request = parse_and_validate_json(body)
-      message = AppUpdateMessage.create_from_http_request(request)
-      unprocessable!(message.errors.full_messages) unless message.valid?
 
       app, space, org = AppFetcher.new.fetch(guid)
 
       app_not_found! if app.nil? || !can_read?(space.guid, org.guid)
       unauthorized! unless can_update?(space.guid)
+
+      assembled_request = AppUpdateRequestBuilder.new.build(request, app.lifecycle_data)
+      message = AppUpdateMessage.create_from_http_request(assembled_request)
+      unprocessable!(message.errors.full_messages) unless message.valid?
 
       buildpack_validator = BuildpackRequestValidator.new({ buildpack: message.buildpack })
       unprocessable!(buildpack_validator.errors.full_messages) unless buildpack_validator.valid?
