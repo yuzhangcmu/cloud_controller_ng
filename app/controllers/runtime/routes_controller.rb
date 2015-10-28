@@ -12,7 +12,7 @@ module VCAP::CloudController
       to_many :apps
     end
 
-    query_parameters :host, :domain_guid, :organization_guid, :path
+    query_parameters :host, :domain_guid, :organization_guid, :path, :generate_port
 
     def self.dependencies
       [:routing_api_client]
@@ -106,6 +106,8 @@ module VCAP::CloudController
       domain_guid = request_attrs['domain_guid']
       return if domain_guid.nil?
 
+      generate_port! if request_attrs['generate_port']
+
       validate_tcp_route(domain_guid)
     end
 
@@ -122,6 +124,10 @@ module VCAP::CloudController
   end
 
   private
+
+  def generate_port!
+    request_attrs['port'] = PortGenerator.new(request_attrs).generate_port
+  end
 
   def validate_tcp_route(domain_guid)
     RouteValidator.new(@routing_api_client, domain_guid, assemble_route_attrs).validate
