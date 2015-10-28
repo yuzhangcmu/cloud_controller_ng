@@ -15,9 +15,10 @@ module VCAP::CloudController
 
         app.name                  = message.name if message.requested?(:name)
         app.environment_variables = message.environment_variables if message.requested?(:environment_variables)
-        app.buildpack             = message.buildpack if message.requested?(:buildpack)
 
         app.save
+
+        update_lifecycle_data(app, message)
 
         Repositories::Runtime::AppEventRepository.new.record_app_update(
           app,
@@ -31,6 +32,21 @@ module VCAP::CloudController
       app
     rescue Sequel::ValidationFailed => e
       raise InvalidApp.new(e.message)
+    end
+
+    private
+
+    def update_lifecycle_data(app, message)
+      should_save = false
+      if message.buildpack_data.requested?(:buildpack)
+        should_save = true
+        app.lifecycle_data.buildpack = message.buildpack_data.buildpack
+      end
+      if message.buildpack_data.requested?(:stack)
+        should_save = true
+        app.lifecycle_data.stack = message.buildpack_data.stack
+      end
+      app.lifecycle_data.save if should_save
     end
   end
 end
