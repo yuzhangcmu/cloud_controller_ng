@@ -6,7 +6,6 @@ resource 'Routes', type: [:api, :legacy_api] do
   let(:space) { VCAP::CloudController::Space.make }
   let(:domain) { VCAP::CloudController::SharedDomain.make(router_group_guid: 'tcp-group') }
   let(:route_path) { '/apps/v1/path' }
-  let(:port) { 10000 }
   let(:service_instance) { VCAP::CloudController::ManagedServiceInstance.make(:routing, space: space) }
   let(:route) { VCAP::CloudController::Route.make(domain: domain, space: space) }
   let(:guid) { route.guid }
@@ -61,14 +60,14 @@ resource 'Routes', type: [:api, :legacy_api] do
           required_fields.merge(
             domain_guid: domain.guid,
             space_guid: space.guid,
-            port: port,
+            port: 10000
           ), pretty: true
         )
         client.post '/v2/routes', body, headers
+        puts parsed_response
         expect(status).to eq(201)
 
         standard_entity_response parsed_response, :route
-        expect(parsed_response['entity']['port']).to eq(port)
         expect(parsed_response['entity']['space_guid']).to eq(space.guid)
       end
     end
@@ -76,19 +75,19 @@ resource 'Routes', type: [:api, :legacy_api] do
     put '/v2/routes/:guid' do
       include_context 'updatable_fields', required: false
 
-      let(:new_port) { 12000 }
+
 
       example 'Update a Route' do
         body = MultiJson.dump(
           {
-            port: new_port,
+            port: 10000
           }, pretty: true
         )
         client.put "/v2/routes/#{guid}", body, headers
 
         expect(status).to eq 201
-        standard_entity_response parsed_response, :route, port: new_port
-        expect(parsed_response['entity']['port']).to eq(new_port)
+        # expect(parsed_response['entity']['host']).to eq('')
+        # expect(parsed_response['entity']['path']).to eq('/bar/baz')
       end
     end
   end

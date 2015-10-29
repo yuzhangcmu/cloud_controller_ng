@@ -57,6 +57,30 @@ module VCAP::CloudController
       Errors::ApiError.new_from_details('RouteInvalid', e.errors.full_messages)
     end
 
+    def create
+      json_msg = self.class::CreateMessage.decode(body)
+
+      @request_attrs = json_msg.extract(stringify_keys: true)
+
+      logger.debug 'cc.create', model: self.class.model_class_name, attributes: redact_attributes(:create, request_attrs)
+
+      before_create
+
+      obj = nil
+      route.db.transaction do
+        route.lock
+        generate_port! if request_attrs['generate_port']
+        obj = model.create_from_hash(request_attrs)
+        validate_access(:create, obj, request_attrs)
+      end
+
+      [
+          HTTP::CREATED,
+          { 'Location' => "#{self.class.path}/#{obj.guid}" },
+          object_renderer.render_json(self.class, obj, @opts)
+      ]
+    end
+
     def delete(guid)
       route = find_guid_and_validate_access(:delete, guid)
       if !recursive? && route.service_instance.present?
@@ -105,8 +129,6 @@ module VCAP::CloudController
       super
       domain_guid = request_attrs['domain_guid']
       return if domain_guid.nil?
-
-      generate_port! if request_attrs['generate_port']
 
       validate_tcp_route(domain_guid)
     end
