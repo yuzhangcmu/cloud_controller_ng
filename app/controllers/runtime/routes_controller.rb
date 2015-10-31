@@ -66,13 +66,9 @@ module VCAP::CloudController
 
       before_create
 
-      obj = nil
-      route.db.transaction do
-        route.lock
-        generate_port! if request_attrs['generate_port']
-        obj = model.create_from_hash(request_attrs)
-        validate_access(:create, obj, request_attrs)
-      end
+      generate_port! if params['generate_port']
+      obj = model.create_from_hash(request_attrs)
+      validate_access(:create, obj, request_attrs)
 
       [
           HTTP::CREATED,
