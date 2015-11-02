@@ -4,7 +4,11 @@ describe DropletsController, type: :controller do
   let(:membership) { instance_double(VCAP::CloudController::Membership) }
 
   describe '#show' do
-    let(:droplet) { VCAP::CloudController::DropletModel.make }
+    let(:droplet) do
+      VCAP::CloudController::DropletModel.make.tap do |droplet|
+        droplet.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+      end
+    end
 
     before do
       @request.env.merge!(headers_for(VCAP::CloudController::User.make))
@@ -181,9 +185,21 @@ describe DropletsController, type: :controller do
     let(:user) { VCAP::CloudController::User.make }
     let(:app) { VCAP::CloudController::AppModel.make }
     let(:space) { app.space }
-    let!(:user_droplet_1) { VCAP::CloudController::DropletModel.make(app_guid: app.guid) }
-    let!(:user_droplet_2) { VCAP::CloudController::DropletModel.make(app_guid: app.guid) }
-    let!(:admin_droplet) { VCAP::CloudController::DropletModel.make }
+    let!(:user_droplet_1) do
+      VCAP::CloudController::DropletModel.make(app_guid: app.guid).tap do |droplet|
+        droplet.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+      end
+    end
+    let!(:user_droplet_2) do
+      VCAP::CloudController::DropletModel.make(app_guid: app.guid).tap do |droplet|
+        droplet.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+      end
+    end
+    let!(:admin_droplet) do
+      VCAP::CloudController::DropletModel.make.tap do |droplet|
+        droplet.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+      end
+    end
 
     before do
       @request.env.merge!(headers_for(user))

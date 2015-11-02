@@ -1,0 +1,440 @@
+rspec ./spec/api/documentation/app_bits_api_spec.rb:113 # Apps GET /v2/apps/:guid/download Downloads the bits for an App
+rspec ./spec/api/documentation/app_bits_api_spec.rb:145 # Apps GET /v2/apps/:guid/droplet/download Downloads the staged droplet for an App
+rspec ./spec/api/documentation/app_bits_api_spec.rb:167 # Apps POST /v2/apps/:guid/copy_bits Copy the app bits for an App
+rspec ./spec/api/documentation/app_bits_api_spec.rb:71 # Apps PUT /v2/apps/:guid/bits Uploads the bits for an App
+rspec ./spec/api/documentation/app_usage_event_api_spec.rb:12 # App Usage Events Standard endpoints GET /v2/app_usage_events/:guid Retrieve a Particular App Usage Event
+rspec ./spec/api/documentation/app_usage_event_api_spec.rb:52 # App Usage Events Standard endpoints GET /v2/app_usage_events List all App Usage Events
+rspec ./spec/api/documentation/app_usage_event_api_spec.rb:80 # App Usage Events POST /v2/app_usage_events/destructively_purge_all_and_reseed_started_apps Purge and reseed App Usage Events
+rspec ./spec/api/documentation/apps_api_spec.rb:117 # Apps Standard endpoints PUT /v2/apps/:guid Updating an App
+rspec ./spec/api/documentation/apps_api_spec.rb:184 # Apps GET /v2/apps/:guid/env Get the env for an App
+rspec ./spec/api/documentation/apps_api_spec.rb:209 # Apps GET /v2/apps/:guid/instances Get the instance information for a STARTED App
+rspec ./spec/api/documentation/apps_api_spec.rb:240 # Apps DELETE /v2/apps/:guid/instances/:index Terminate the running App Instance at the given index
+rspec ./spec/api/documentation/apps_api_spec.rb:252 # Apps GET /v2/apps/:guid/stats Get detailed stats for a STARTED App
+rspec ./spec/api/documentation/apps_api_spec.rb:86 # Apps Standard endpoints POST /v2/apps/ Creating an App
+rspec ./spec/api/documentation/apps_api_spec.rb:98 # Apps Standard endpoints POST /v2/apps/ Creating a Docker App (experimental)
+rspec ./spec/api/documentation/apps_api_spec.rb[1:1:1:1] # Apps Standard endpoints GET /v2/apps List all Apps
+rspec ./spec/api/documentation/apps_api_spec.rb[1:1:2:1] # Apps Standard endpoints GET /v2/apps/:guid Retrieve a Particular App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:1:3:1] # Apps Standard endpoints DELETE /v2/apps/:guid Delete a Particular App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:2:1:1:1] # Apps Nested endpoints Service Bindings GET /v2/apps/:guid/service_bindings List all Service Bindings for the App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:2:1:2:1] # Apps Nested endpoints Service Bindings DELETE /v2/apps/:guid/service_bindings/:service_binding_guid Remove Service Binding from the App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:2:2:1:1] # Apps Nested endpoints Routes GET /v2/apps/:guid/routes List all Routes for the App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:2:2:2:1] # Apps Nested endpoints Routes PUT /v2/apps/:guid/routes/:route_guid Associate Route with the App
+rspec ./spec/api/documentation/apps_api_spec.rb[1:2:2:3:1] # Apps Nested endpoints Routes DELETE /v2/apps/:guid/routes/:route_guid Remove Route from the App
+rspec ./spec/api/documentation/apps_restage_api_spec.rb:14 # Apps POST /v2/apps/:guid/restage Restage an App
+rspec ./spec/api/documentation/buildpack_cache_api_spec.rb:42 # Blobstores DELETE /v2/blobstores/buildpack_cache Delete all blobs in the Buildpack cache blobstore
+rspec ./spec/api/documentation/buildpacks_api_spec.rb:120 # Buildpacks PUT /v2/buildpacks/:guid/bits Upload the bits for an admin Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb:35 # Buildpacks Standard endpoints POST /v2/buildpacks Creates an admin Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb:46 # Buildpacks Standard endpoints PUT /v2/buildpacks/:guid Change the position of a Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb:66 # Buildpacks Standard endpoints PUT /v2/buildpacks/:guid Enable or disable a Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb:84 # Buildpacks Standard endpoints PUT /v2/buildpacks/:guid Lock or unlock a Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb[1:1:1:1] # Buildpacks Standard endpoints GET /v2/buildpacks List all Buildpacks
+rspec ./spec/api/documentation/buildpacks_api_spec.rb[1:1:2:1] # Buildpacks Standard endpoints GET /v2/buildpacks/:guid Retrieve a Particular Buildpack
+rspec ./spec/api/documentation/buildpacks_api_spec.rb[1:1:3:1] # Buildpacks Standard endpoints DELETE /v2/buildpacks/:guid? Delete a Particular Buildpack
+rspec ./spec/api/documentation/domains_api_spec.rb:23 # Domains (deprecated) Standard endpoints POST /v2/domains Creating a Shared Domain Create a Shared Domain
+rspec ./spec/api/documentation/domains_api_spec.rb:33 # Domains (deprecated) Standard endpoints POST /v2/domains Creating a domain owned by an organization Create a Domain owned by the given Organization
+rspec ./spec/api/documentation/domains_api_spec.rb:56 # Domains (deprecated) Nested endpoints Spaces GET /v2/domains/:guid/spaces List all Spaces for the Domain
+rspec ./spec/api/documentation/domains_api_spec.rb[1:1:1:1] # Domains (deprecated) Standard endpoints GET /v2/domains List all Domains
+rspec ./spec/api/documentation/domains_api_spec.rb[1:1:2:1] # Domains (deprecated) Standard endpoints GET /v2/domains/:guid Retrieve a Particular Domain
+rspec ./spec/api/documentation/domains_api_spec.rb[1:1:3:1] # Domains (deprecated) Standard endpoints DELETE /v2/domains/:guid? Delete a Particular Domain
+rspec ./spec/api/documentation/environment_variable_groups_api_spec.rb:13 # Environment Variable Groups Standard endpoints GET /v2/config/environment_variable_groups/staging Getting the contents of the staging environment variable group
+rspec ./spec/api/documentation/environment_variable_groups_api_spec.rb:31 # Environment Variable Groups Standard endpoints GET /v2/config/environment_variable_groups/running Getting the contents of the running environment variable group
+rspec ./spec/api/documentation/environment_variable_groups_api_spec.rb:49 # Environment Variable Groups Standard endpoints PUT /v2/config/environment_variable_groups/running Updating the contents of the running environment variable group
+rspec ./spec/api/documentation/environment_variable_groups_api_spec.rb:64 # Environment Variable Groups Standard endpoints PUT /v2/config/environment_variable_groups/staging Updating the contents of the staging environment variable group
+rspec ./spec/api/documentation/events_api_spec.rb:134 # Events GET /v2/events List App Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:150 # Events GET /v2/events List App Start Events
+rspec ./spec/api/documentation/events_api_spec.rb:166 # Events GET /v2/events List App Stop Events
+rspec ./spec/api/documentation/events_api_spec.rb:182 # Events GET /v2/events List App Exited Events
+rspec ./spec/api/documentation/events_api_spec.rb:198 # Events GET /v2/events List App Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:216 # Events GET /v2/events List App Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:232 # Events GET /v2/events List App SSH Authorized Events
+rspec ./spec/api/documentation/events_api_spec.rb:248 # Events GET /v2/events List App SSH Unauthorized Events
+rspec ./spec/api/documentation/events_api_spec.rb:264 # Events GET /v2/events List events associated with an App since January 1, 2014
+rspec ./spec/api/documentation/events_api_spec.rb:282 # Events GET /v2/events List Space Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:298 # Events GET /v2/events List Space Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:314 # Events GET /v2/events List Space Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:330 # Events GET /v2/events List Service Dashboard Client Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:360 # Events GET /v2/events List Service Dashboard Client Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:385 # Events GET /v2/events List Service Plan Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:422 # Events GET /v2/events List Service Plan Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:441 # Events GET /v2/events List Service Plan Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:457 # Events GET /v2/events List Service Plan Visibility Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:480 # Events GET /v2/events List Service Plan Visibility Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:503 # Events GET /v2/events List Service Plan Visibility Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:520 # Events GET /v2/events List Service Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:564 # Events GET /v2/events List Service Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:583 # Events GET /v2/events List Service Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:599 # Events GET /v2/events List Service Broker Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:629 # Events GET /v2/events List Service Broker Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:655 # Events GET /v2/events List Service Broker Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:672 # Events GET /v2/events List Service Instance Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:699 # Events GET /v2/events List Service Instance Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:722 # Events GET /v2/events List Service Instance Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:741 # Events GET /v2/events List User Provided Service Instance Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:766 # Events GET /v2/events List User Provided Service Instance Update Events
+rspec ./spec/api/documentation/events_api_spec.rb:789 # Events GET /v2/events List User Provided Service Instance Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:808 # Events GET /v2/events List Service Binding Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:834 # Events GET /v2/events List Service Binding Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb:857 # Events GET /v2/events List Service Key Create Events
+rspec ./spec/api/documentation/events_api_spec.rb:882 # Events GET /v2/events List Service Key Delete Events
+rspec ./spec/api/documentation/events_api_spec.rb[1:1:1] # Events GET /v2/events List all Events
+rspec ./spec/api/documentation/events_api_spec.rb[1:2:1] # Events GET /v2/events/:guid Retrieve a Particular Event
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:115 # Feature Flags GET /v2/config/feature_flags/set_roles_by_username Get the Set User Roles feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:137 # Feature Flags GET /v2/config/feature_flags/app_bits_upload Get the App Bits Upload feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:153 # Feature Flags GET /v2/config/feature_flags/app_scaling Get the App Scaling feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:169 # Feature Flags GET /v2/config/feature_flags/user_org_creation Get the User Org Creation feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:185 # Feature Flags GET /v2/config/feature_flags/private_domain_creation Get the Private Domain Creation feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:201 # Feature Flags GET /v2/config/feature_flags/route_creation Get the Route Creation feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:21 # Feature Flags GET /v2/config/feature_flags Get all feature flags
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:217 # Feature Flags GET /v2/config/feature_flags/service_instance_creation Get the Service Instance Creation feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:233 # Feature Flags GET /v2/config/feature_flags/diego_docker Get the Diego Docker feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:253 # Feature Flags PUT /v2/config/feature_flags/:name Set a feature flag
+rspec ./spec/api/documentation/feature_flags_api_spec.rb:92 # Feature Flags GET /v2/config/feature_flags/unset_roles_by_username Get the Unset User Roles feature flag
+rspec ./spec/api/documentation/files_api_spec.rb:14 # Files GET /v2/apps/:app_guid/instances/:instance_index/files/:file_path Retrieve File
+rspec ./spec/api/documentation/info_api_spec.rb:6 # Info GET /v2/info Get Info
+rspec ./spec/api/documentation/job_api_spec.rb:115 # Jobs GET /v2/jobs/:guid For a successfully executed job Retrieve Job that was successful
+rspec ./spec/api/documentation/job_api_spec.rb:42 # Jobs GET /v2/jobs/:guid When a job has failed with a known failure from v2.yml Retrieve Job with known failure
+rspec ./spec/api/documentation/job_api_spec.rb:72 # Jobs GET /v2/jobs/:guid When a job has failed with an unknown failure Retrieve Job with unknown failure
+rspec ./spec/api/documentation/job_api_spec.rb:99 # Jobs GET /v2/jobs/:guid For a queued job Retrieve Job that is queued
+rspec ./spec/api/documentation/organizations_api_spec.rb:107 # Organizations Nested endpoints Domains GET /v2/organizations/:guid/domains List all Domains for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:111 # Organizations Nested endpoints Private Domains GET /v2/organizations/:guid/private_domains List all Private Domains for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:159 # Organizations Nested endpoints Users by username PUT v2/organizations/:guid/users Associate User with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:172 # Organizations Nested endpoints Users by username DELETE v2/organizations/:guid/users Disassociate User with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:211 # Organizations Nested endpoints Managers by username PUT v2/organizations/:guid/managers Associate Manager with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:224 # Organizations Nested endpoints Managers by username DELETE v2/organizations/:guid/managers Disassociate Manager with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:262 # Organizations Nested endpoints Billing Managers by username PUT v2/organizations/:guid/billing_managers Associate Billing Manager with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:275 # Organizations Nested endpoints Billing Managers by username DELETE v2/organizations/:guid/billing_managers Disassociate Billing Manager with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:313 # Organizations Nested endpoints Auditors by username PUT v2/organizations/:guid/auditors Associate Auditor with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:32 # Organizations Standard endpoints POST /v2/organizations/ Creating an Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:326 # Organizations Nested endpoints Auditors by username DELETE v2/organizations/:guid/auditors Disassociate Auditor with the Organization by Username
+rspec ./spec/api/documentation/organizations_api_spec.rb:340 # Organizations Nested endpoints Services GET /v2/organizations/:guid/services List all Services for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:353 # Organizations Nested endpoints Memory Usage (Experimental) GET /v2/organizations/:guid/memory_usage Retrieving organization memory usage
+rspec ./spec/api/documentation/organizations_api_spec.rb:364 # Organizations Nested endpoints Instance Usage (Experimental) GET /v2/organizations/:guid/instance_usage Retrieving organization instance usage
+rspec ./spec/api/documentation/organizations_api_spec.rb:46 # Organizations Standard endpoints PUT /v2/organizations/:guid Update an Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:80 # Organizations Nested endpoints User Roles GET /v2/organizations/:guid/user_roles Retrieving the roles of all Users in the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:91 # Organizations Nested endpoints Spaces GET /v2/organizations/:guid/spaces List all Spaces for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb:99 # Organizations Nested endpoints Space Quota Definitions GET /v2/organizations/:guid/space_quota_definitions List all Space Quota Definitions for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:1:1:1] # Organizations Standard endpoints GET /v2/organizations List all Organizations
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:1:2:1] # Organizations Standard endpoints GET /v2/organizations/:guid Retrieve a Particular Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:1:3:1] # Organizations Standard endpoints DELETE /v2/organizations/:guid? Delete a Particular Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:10:1:1:1] # Organizations Nested endpoints Auditors by user guid GET /v2/organizations/:guid/auditors List all Auditors for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:10:1:2:1] # Organizations Nested endpoints Auditors by user guid PUT /v2/organizations/:guid/auditors/:auditor_guid Associate Auditor with the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:10:1:3:1] # Organizations Nested endpoints Auditors by user guid DELETE /v2/organizations/:guid/auditors/:auditor_guid Remove Auditor from the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:6:1:1] # Organizations Nested endpoints Shared Private Domains PUT /v2/organizations/:guid/private_domains/:private_domain_guid Associate Private Domain with the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:6:2:1] # Organizations Nested endpoints Shared Private Domains DELETE /v2/organizations/:guid/private_domains/:private_domain_guid Remove Private Domain from the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:7:1:1:1] # Organizations Nested endpoints Users by user guid GET /v2/organizations/:guid/users List all Users for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:7:1:2:1] # Organizations Nested endpoints Users by user guid PUT /v2/organizations/:guid/users/:user_guid Associate User with the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:7:1:3:1] # Organizations Nested endpoints Users by user guid DELETE /v2/organizations/:guid/users/:user_guid Remove User from the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:8:1:1:1] # Organizations Nested endpoints Managers by user guid GET /v2/organizations/:guid/managers List all Managers for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:8:1:2:1] # Organizations Nested endpoints Managers by user guid PUT /v2/organizations/:guid/managers/:manager_guid Associate Manager with the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:8:1:3:1] # Organizations Nested endpoints Managers by user guid DELETE /v2/organizations/:guid/managers/:manager_guid Remove Manager from the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:9:1:1:1] # Organizations Nested endpoints Billing Managers by user guid GET /v2/organizations/:guid/billing_managers List all Billing Managers for the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:9:1:2:1] # Organizations Nested endpoints Billing Managers by user guid PUT /v2/organizations/:guid/billing_managers/:billing_manager_guid Associate Billing Manager with the Organization
+rspec ./spec/api/documentation/organizations_api_spec.rb[1:2:9:1:3:1] # Organizations Nested endpoints Billing Managers by user guid DELETE /v2/organizations/:guid/billing_managers/:billing_manager_guid Remove Billing Manager from the Organization
+rspec ./spec/api/documentation/private_domains_api_spec.rb:27 # Private Domains Standard endpoints POST /v2/private_domains Create a Private Domain owned by the given Organization
+rspec ./spec/api/documentation/private_domains_api_spec.rb:54 # Private Domains Standard endpoints GET /v2/private_domains querying by name Filtering Private Domains by name
+rspec ./spec/api/documentation/private_domains_api_spec.rb:75 # Private Domains Nested endpoints Shared Organizations GET /v2/private_domains/:guid/shared_organizations List all Shared Organizations for the Private Domain
+rspec ./spec/api/documentation/private_domains_api_spec.rb[1:1:1:1] # Private Domains Standard endpoints GET /v2/private_domains List all Private Domains
+rspec ./spec/api/documentation/private_domains_api_spec.rb[1:1:2:1] # Private Domains Standard endpoints GET /v2/private_domains/:guid Retrieve a Particular Private Domain
+rspec ./spec/api/documentation/private_domains_api_spec.rb[1:1:3:1] # Private Domains Standard endpoints DELETE /v2/private_domains/:guid? Delete a Particular Private Domain
+rspec ./spec/api/documentation/quota_definitions_api_spec.rb:42 # Organization Quota Definitions POST /v2/quota_definitions Creating a Organization Quota Definition
+rspec ./spec/api/documentation/quota_definitions_api_spec.rb:53 # Organization Quota Definitions PUT /v2/quota_definitions/:guid Updating a Organization Quota Definition
+rspec ./spec/api/documentation/quota_definitions_api_spec.rb[1:1:1] # Organization Quota Definitions GET /v2/quota_definitions List all Organization Quota Definitions
+rspec ./spec/api/documentation/quota_definitions_api_spec.rb[1:2:1] # Organization Quota Definitions GET /v2/quota_definitions/:guid Retrieve a Particular Organization Quota Definition
+rspec ./spec/api/documentation/quota_definitions_api_spec.rb[1:3:1] # Organization Quota Definitions DELETE /v2/quota_definitions/:guid? Delete a Particular Organization Quota Definition
+rspec ./spec/api/documentation/resource_matches_api_spec.rb:11 # Resource Match PUT /v2/resource_match List all matching resources
+rspec ./spec/api/documentation/routes_api_spec.rb:123 # Routes Reserved Routes GET /v2/routes/reserved/domain/:domain_guid/host/:host?path=:path Check a Route exists
+rspec ./spec/api/documentation/routes_api_spec.rb:59 # Routes Standard endpoints POST /v2/routes/ Creating a Route
+rspec ./spec/api/documentation/routes_api_spec.rb:81 # Routes Standard endpoints PUT /v2/routes/:guid Update a Route
+rspec ./spec/api/documentation/routes_api_spec.rb[1:1:1:1:1] # Routes Standard endpoints with a route binding GET /v2/routes List all Routes
+rspec ./spec/api/documentation/routes_api_spec.rb[1:1:1:2:1] # Routes Standard endpoints with a route binding GET /v2/routes/:guid Retrieve a Particular Route
+rspec ./spec/api/documentation/routes_api_spec.rb[1:1:1:3:1] # Routes Standard endpoints with a route binding DELETE /v2/routes/:guid?recursive=true Delete a Particular Route
+rspec ./spec/api/documentation/routes_api_spec.rb[1:2:1:1:1] # Routes Nested endpoints Apps GET /v2/routes/:guid/apps List all Apps for the Route
+rspec ./spec/api/documentation/routes_api_spec.rb[1:2:1:2:1] # Routes Nested endpoints Apps PUT /v2/routes/:guid/apps/:app_guid Associate App with the Route
+rspec ./spec/api/documentation/routes_api_spec.rb[1:2:1:3:1] # Routes Nested endpoints Apps DELETE /v2/routes/:guid/apps/:app_guid Remove App from the Route
+rspec ./spec/api/documentation/security_group_running_defaults_api_spec.rb:12 # Security Group Running Defaults PUT /v2/config/running_security_groups/:guid Set a Security Group as a default for running Apps
+rspec ./spec/api/documentation/security_group_running_defaults_api_spec.rb:21 # Security Group Running Defaults DELETE /v2/config/running_security_groups/:guid Removing a Security Group as a default for running Apps
+rspec ./spec/api/documentation/security_group_running_defaults_api_spec.rb:28 # Security Group Running Defaults GET /v2/config/running_security_groups Return the Security Groups used for running Apps
+rspec ./spec/api/documentation/security_group_staging_defaults_api_spec.rb:12 # Security Group Staging Defaults PUT /v2/config/staging_security_groups/:guid Set a Security Group as a default for staging
+rspec ./spec/api/documentation/security_group_staging_defaults_api_spec.rb:21 # Security Group Staging Defaults DELETE /v2/config/staging_security_groups/:guid Removing a Security Group as a default for staging
+rspec ./spec/api/documentation/security_group_staging_defaults_api_spec.rb:28 # Security Group Staging Defaults GET /v2/config/staging_security_groups Return the Security Groups used for staging
+rspec ./spec/api/documentation/security_groups_api_spec.rb:46 # Security Groups Standard endpoints POST /v2/security_groups/ Creating a Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb:58 # Security Groups Standard endpoints PUT /v2/security_groups/:guid Updating a Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb:70 # Security Groups Nested endpoints Spaces GET /v2/security_groups/:guid/spaces List all Spaces for the Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb[1:1:1:1] # Security Groups Standard endpoints GET /v2/security_groups List all Security Groups
+rspec ./spec/api/documentation/security_groups_api_spec.rb[1:1:2:1] # Security Groups Standard endpoints GET /v2/security_groups/:guid Retrieve a Particular Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb[1:1:3:1] # Security Groups Standard endpoints DELETE /v2/security_groups/:guid? Delete a Particular Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb[1:2:1:2:1:1] # Security Groups Nested endpoints Spaces with space_guid PUT /v2/security_groups/:guid/spaces/:space_guid Associate Space with the Security Group
+rspec ./spec/api/documentation/security_groups_api_spec.rb[1:2:1:2:2:1] # Security Groups Nested endpoints Spaces with space_guid DELETE /v2/security_groups/:guid/spaces/:space_guid Remove Space from the Security Group
+rspec ./spec/api/documentation/service_auth_tokens_api_spec.rb:30 # ServiceAuthTokens (deprecated) GET /v2/service_auth_tokens querying by label Filtering the result set by label
+rspec ./spec/api/documentation/service_auth_tokens_api_spec.rb:53 # ServiceAuthTokens (deprecated) GET /v2/service_auth_tokens querying by provider Filtering the result set by provider
+rspec ./spec/api/documentation/service_auth_tokens_api_spec.rb[1:1:1] # ServiceAuthTokens (deprecated) GET /v2/service_auth_tokens List all Service Auth Tokens
+rspec ./spec/api/documentation/service_auth_tokens_api_spec.rb[1:2:1] # ServiceAuthTokens (deprecated) GET /v2/service_auth_tokens/:guid Retrieve a Particular Service Auth Token
+rspec ./spec/api/documentation/service_auth_tokens_api_spec.rb[1:3:1] # ServiceAuthTokens (deprecated) DELETE /v2/service_auth_tokens/:guid? Delete a Particular Service Auth Token
+rspec ./spec/api/documentation/service_bindings_api_spec.rb:32 # Service Bindings POST /v2/service_bindings Create a Service Binding
+rspec ./spec/api/documentation/service_bindings_api_spec.rb[1:1:1] # Service Bindings GET /v2/service_bindings List all Service Bindings
+rspec ./spec/api/documentation/service_bindings_api_spec.rb[1:2:1] # Service Bindings GET /v2/service_bindings/:guid Retrieve a Particular Service Binding
+rspec ./spec/api/documentation/service_bindings_api_spec.rb[1:3:1] # Service Bindings DELETE /v2/service_bindings/:guid? Delete a Particular Service Binding
+rspec ./spec/api/documentation/service_brokers_api_spec.rb:104 # Service Brokers Standard endpoints PUT /v2/service_brokers/:guid Update a Service Broker
+rspec ./spec/api/documentation/service_brokers_api_spec.rb:69 # Service Brokers Standard endpoints POST /v2/service_brokers Create a Service Broker
+rspec ./spec/api/documentation/service_brokers_api_spec.rb[1:1:1:1] # Service Brokers Standard endpoints GET /v2/service_brokers List all Service Brokers
+rspec ./spec/api/documentation/service_brokers_api_spec.rb[1:1:2:1] # Service Brokers Standard endpoints GET /v2/service_brokers/:guid Retrieve a Particular Service Broker
+rspec ./spec/api/documentation/service_brokers_api_spec.rb[1:1:3:1] # Service Brokers Standard endpoints DELETE /v2/service_brokers/:guid? Delete a Particular Service Broker
+rspec ./spec/api/documentation/service_instances_api_spec.rb:134 # Service Instances Standard endpoints PUT /v2/service_instances/:guid Update a Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb:169 # Service Instances Standard endpoints DELETE /v2/service_instances/:guid Delete a Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb:181 # Service Instances Nested endpoints Service Bindings GET /v2/service_instances/:guid/service_bindings List all Service Bindings for the Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb:189 # Service Instances Nested endpoints Routes GET /v2/service_instances/:guid/routes List all Routes for the Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb:199 # Service Instances Nested endpoints Routes PUT /v2/service_instances/:service_instance_guid/routes/:route_guid Binding a service instance to a route (experimental)
+rspec ./spec/api/documentation/service_instances_api_spec.rb:214 # Service Instances Nested endpoints Routes DELETE /v2/service_instances/:service_instance_guid/routes/:route_guid Unbinding a service instance from a route (experimental)
+rspec ./spec/api/documentation/service_instances_api_spec.rb:226 # Service Instances GET /v2/service_instances/:guid/permissions Retrieving permissions on a Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb:241 # Service Instances PUT /v2/service_plans/:service_plan_guid/service_instances Migrate Service Instances from one Service Plan to another Service Plan (experimental)
+rspec ./spec/api/documentation/service_instances_api_spec.rb:90 # Service Instances Standard endpoints POST /v2/service_instances/ Creating a Service Instance
+rspec ./spec/api/documentation/service_instances_api_spec.rb[1:1:1:1] # Service Instances Standard endpoints GET /v2/service_instances List all Service Instances
+rspec ./spec/api/documentation/service_instances_api_spec.rb[1:1:2:1] # Service Instances Standard endpoints GET /v2/service_instances/:guid Retrieve a Particular Service Instance
+rspec ./spec/api/documentation/service_keys_api_spec.rb:26 # Service Keys POST /v2/service_keys Create a Service Key
+rspec ./spec/api/documentation/service_keys_api_spec.rb[1:1:1] # Service Keys GET /v2/service_keys List all Service Keys
+rspec ./spec/api/documentation/service_keys_api_spec.rb[1:2:1] # Service Keys GET /v2/service_keys/:guid Retrieve a Particular Service Key
+rspec ./spec/api/documentation/service_keys_api_spec.rb[1:3:1] # Service Keys DELETE /v2/service_keys/:guid? Delete a Particular Service Key
+rspec ./spec/api/documentation/service_plan_visibilities_api_spec.rb:18 # Service Plan Visibilities POST /v2/service_plan_visibilities Creating a Service Plan Visibility
+rspec ./spec/api/documentation/service_plan_visibilities_api_spec.rb:32 # Service Plan Visibilities PUT /v2/service_plan_visibilities/:guid Updating a Service Plan Visibility
+rspec ./spec/api/documentation/service_plan_visibilities_api_spec.rb[1:1:1] # Service Plan Visibilities GET /v2/service_plan_visibilities List all Service Plan Visibilities
+rspec ./spec/api/documentation/service_plan_visibilities_api_spec.rb[1:2:1] # Service Plan Visibilities GET /v2/service_plan_visibilities/:guid Retrieve a Particular Service Plan Visibility
+rspec ./spec/api/documentation/service_plan_visibilities_api_spec.rb[1:3:1] # Service Plan Visibilities DELETE /v2/service_plan_visibilities/:guid? Delete a Particular Service Plan Visibilities
+rspec ./spec/api/documentation/service_plans_api_spec.rb:28 # Service Plans Standard endpoints POST /v2/service_plans Creating a Service Plan (deprecated)
+rspec ./spec/api/documentation/service_plans_api_spec.rb:37 # Service Plans Standard endpoints PUT /v2/service_plans Updating a Service Plan (deprecated)
+rspec ./spec/api/documentation/service_plans_api_spec.rb:49 # Service Plans Nested endpoints Service Instances GET /v2/service_plans/:guid/service_instances List all Service Instances for the Service Plan
+rspec ./spec/api/documentation/service_plans_api_spec.rb[1:1:1:1] # Service Plans Standard endpoints GET /v2/service_plans List all Service Plans
+rspec ./spec/api/documentation/service_plans_api_spec.rb[1:1:2:1] # Service Plans Standard endpoints GET /v2/service_plans/:guid Retrieve a Particular Service Plan
+rspec ./spec/api/documentation/service_plans_api_spec.rb[1:1:3:1] # Service Plans Standard endpoints DELETE /v2/service_plans/:guid? Delete a Particular Service Plans
+rspec ./spec/api/documentation/service_usage_events_api_spec.rb:33 # Service Usage Events GET /v2/service_usage_events List Service Usage Events
+rspec ./spec/api/documentation/service_usage_events_api_spec.rb:4 # Service Usage Events GET /v2/service_usage_events/:guid Retrieve a Particular Service Usage Event
+rspec ./spec/api/documentation/service_usage_events_api_spec.rb:48 # Service Usage Events POST /v2/service_usage_events/destructively_purge_all_and_reseed_existing_instances Purge and reseed Service Usage Events
+rspec ./spec/api/documentation/services_api_spec.rb:56 # Services Standard endpoints DELETE /v2/services/:guid Delete a Particular Service
+rspec ./spec/api/documentation/services_api_spec.rb:63 # Services Standard endpoints POST /v2/services Creating a Service (deprecated)
+rspec ./spec/api/documentation/services_api_spec.rb:72 # Services Standard endpoints PUT /v2/services Updating a Service (deprecated)
+rspec ./spec/api/documentation/services_api_spec.rb:84 # Services Nested endpoints Service Plans GET /v2/services/:guid/service_plans List all Service Plans for the Service
+rspec ./spec/api/documentation/services_api_spec.rb[1:1:1:1] # Services Standard endpoints GET /v2/services List all Services
+rspec ./spec/api/documentation/services_api_spec.rb[1:1:2:1] # Services Standard endpoints GET /v2/services/:guid Retrieve a Particular Service
+rspec ./spec/api/documentation/shared_domain_api_spec.rb:40 # Shared Domains POST /v2/shared_domains Create a Shared Domain
+rspec ./spec/api/documentation/shared_domain_api_spec.rb:63 # Shared Domains GET /v2/shared_domains Querying Shared Domains by name Filtering Shared Domains by name
+rspec ./spec/api/documentation/shared_domain_api_spec.rb[1:1:1] # Shared Domains GET /v2/shared_domains List all Shared Domains
+rspec ./spec/api/documentation/shared_domain_api_spec.rb[1:2:1] # Shared Domains GET /v2/shared_domains/:guid Retrieve a Particular Shared Domain
+rspec ./spec/api/documentation/shared_domain_api_spec.rb[1:3:1] # Shared Domains DELETE /v2/shared_domains/:guid? Delete a Particular Shared Domain
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb:38 # Space Quota Definitions POST /v2/space_quota_definitions Creating a Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb:50 # Space Quota Definitions PUT /v2/space_quota_definitions/:guid Updating a Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:1:1] # Space Quota Definitions GET /v2/space_quota_definitions List all Space Quota Definitions
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:2:1] # Space Quota Definitions GET /v2/space_quota_definitions/:guid Retrieve a Particular Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:3:1] # Space Quota Definitions DELETE /v2/space_quota_definitions/:guid? Delete a Particular Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:6:1:1:1] # Space Quota Definitions Nested endpoints Spaces GET /v2/space_quota_definitions/:guid/spaces List all Spaces for the Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:6:1:2:1] # Space Quota Definitions Nested endpoints Spaces PUT /v2/space_quota_definitions/:guid/spaces/:space_guid Associate Space with the Space Quota Definition
+rspec ./spec/api/documentation/space_quota_definitions_api_spec.rb[1:6:1:3:1] # Space Quota Definitions Nested endpoints Spaces DELETE /v2/space_quota_definitions/:guid/spaces/:space_guid Remove Space from the Space Quota Definition
+rspec ./spec/api/documentation/spaces_api_spec.rb:121 # Spaces Nested endpoints Developers by username PUT v2/spaces/:guid/developers Associate Developer with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:134 # Spaces Nested endpoints Developers by username DELETE v2/spaces/:guid/developers Disassociate Developer with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:174 # Spaces Nested endpoints Managers by username PUT v2/spaces/:guid/managers Associate Manager with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:187 # Spaces Nested endpoints Managers by username DELETE v2/spaces/:guid/managers Disassociate Manager with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:227 # Spaces Nested endpoints Auditors by username PUT v2/spaces/:guid/auditors Associate Auditor with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:240 # Spaces Nested endpoints Auditors by username DELETE v2/spaces/:guid/auditors Disassociate Auditor with the Space by Username
+rspec ./spec/api/documentation/spaces_api_spec.rb:269 # Spaces Nested endpoints User Roles GET /v2/spaces/:guid/user_roles Retrieving the roles of all Users in the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:280 # Spaces Nested endpoints Apps GET /v2/spaces/:guid/apps List all Apps for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:288 # Spaces Nested endpoints Domains GET /v2/spaces/:guid/domains List all Domains for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:292 # Spaces Nested endpoints Service Instances GET /v2/spaces/:guid/service_instances List all Service Instances for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:302 # Spaces Nested endpoints Services GET /v2/spaces/:guid/services List all Services for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:312 # Spaces Nested endpoints Events GET /v2/spaces/:guid/events List all Events for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:52 # Spaces Standard endpoints POST /v2/spaces/ Creating a Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:70 # Spaces Standard endpoints PUT /v2/spaces/:guid Update a Space
+rspec ./spec/api/documentation/spaces_api_spec.rb:86 # Spaces Nested endpoints Routes GET /v2/spaces/:guid/routes List all Routes for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:1:1:1] # Spaces Standard endpoints GET /v2/spaces List all Spaces
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:1:2:1] # Spaces Standard endpoints GET /v2/spaces/:guid Retrieve a Particular Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:1:3:1] # Spaces Standard endpoints DELETE /v2/spaces/:guid? Delete a Particular Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:11:1:1] # Spaces Nested endpoints Security Groups GET /v2/spaces/:guid/security_groups List all Security Groups for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:11:2:1] # Spaces Nested endpoints Security Groups PUT /v2/spaces/:guid/security_groups/:security_group_guid Associate Security Group with the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:11:3:1] # Spaces Nested endpoints Security Groups DELETE /v2/spaces/:guid/security_groups/:security_group_guid Remove Security Group from the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:2:1:1:1] # Spaces Nested endpoints Developers by user guid GET /v2/spaces/:guid/developers List all Developers for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:2:1:2:1] # Spaces Nested endpoints Developers by user guid PUT /v2/spaces/:guid/developers/:developer_guid Associate Developer with the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:2:1:3:1] # Spaces Nested endpoints Developers by user guid DELETE /v2/spaces/:guid/developers/:developer_guid Remove Developer from the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:3:1:1:1] # Spaces Nested endpoints Managers by user guid GET /v2/spaces/:guid/managers List all Managers for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:3:1:2:1] # Spaces Nested endpoints Managers by user guid PUT /v2/spaces/:guid/managers/:manager_guid Associate Manager with the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:3:1:3:1] # Spaces Nested endpoints Managers by user guid DELETE /v2/spaces/:guid/managers/:manager_guid Remove Manager from the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:4:1:1:1] # Spaces Nested endpoints Auditors by user guid GET /v2/spaces/:guid/auditors List all Auditors for the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:4:1:2:1] # Spaces Nested endpoints Auditors by user guid PUT /v2/spaces/:guid/auditors/:auditor_guid Associate Auditor with the Space
+rspec ./spec/api/documentation/spaces_api_spec.rb[1:2:4:1:3:1] # Spaces Nested endpoints Auditors by user guid DELETE /v2/spaces/:guid/auditors/:auditor_guid Remove Auditor from the Space
+rspec ./spec/api/documentation/stacks_api_spec.rb:21 # Stacks  POST /v2/stacks Creating a stack Create a Stack
+rspec ./spec/api/documentation/stacks_api_spec.rb:32 # Stacks  POST /v2/stacks Creating a stack without a description Create a Stack
+rspec ./spec/api/documentation/stacks_api_spec.rb:4 # Stacks DELETE /v2/stacks/:guid? Delete a Particular Stack
+rspec ./spec/api/documentation/stacks_api_spec.rb[1:1:1:1] # Stacks  GET /v2/stacks List all Stacks
+rspec ./spec/api/documentation/stacks_api_spec.rb[1:1:2:1] # Stacks  GET /v2/stacks/:guid Retrieve a Particular Stack
+rspec ./spec/api/documentation/summary_api_spec.rb:111 # Organizations GET /v2/organizations/:guid/summary Get Organization summary
+rspec ./spec/api/documentation/summary_api_spec.rb:138 # Users GET /v2/users/:guid/summary Get User summary
+rspec ./spec/api/documentation/summary_api_spec.rb:48 # Apps GET /v2/apps/:guid/summary Get App summary
+rspec ./spec/api/documentation/summary_api_spec.rb:83 # Spaces GET /v2/spaces/:guid/summary Get Space summary
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb:23 # User Provided Service Instances Standard endpoints POST /v2/user_provided_service_instances/ Creating a User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb:43 # User Provided Service Instances Standard endpoints PUT /v2/user_provided_service_instances/:guid Updating a User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb:56 # User Provided Service Instances Nested endpoints Service Bindings GET /v2/user_provided_service_instances/:guid/service_bindings List all Service Bindings for the User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb:87 # User Provided Service Instances Nested endpoints Routes DELETE /v2/user_provided_service_instance/:guid/routes/:route_guid Remove Route from the User Provided Service Instance (experimental)
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb[1:1:1:1] # User Provided Service Instances Standard endpoints GET /v2/user_provided_service_instances List all User Provided Service Instances
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb[1:1:2:1] # User Provided Service Instances Standard endpoints GET /v2/user_provided_service_instances/:guid Retrieve a Particular User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb[1:1:3:1] # User Provided Service Instances Standard endpoints DELETE /v2/user_provided_service_instances/:guid Delete a Particular User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb[1:2:2:1:1] # User Provided Service Instances Nested endpoints Routes GET /v2/user_provided_service_instances/:guid/routes List all Routes for the User Provided Service Instance
+rspec ./spec/api/documentation/user_provided_service_instances_api_spec.rb[1:2:2:2:1] # User Provided Service Instances Nested endpoints Routes PUT /v2/user_provided_service_instances/:guid/routes/:route_guid Associate Route with the User Provided Service Instance (experimental)
+rspec ./spec/api/documentation/users_api_spec.rb:34 # Users Standard endpoints POST /v2/users/ Creating a User
+rspec ./spec/api/documentation/users_api_spec.rb:46 # Users Standard endpoints PUT /v2/users/:guid Updating a User
+rspec ./spec/api/documentation/users_api_spec.rb[1:1:1:1] # Users Standard endpoints GET /v2/users List all Users
+rspec ./spec/api/documentation/users_api_spec.rb[1:1:2:1] # Users Standard endpoints GET /v2/users/:guid Retrieve a Particular User
+rspec ./spec/api/documentation/users_api_spec.rb[1:1:3:1] # Users Standard endpoints DELETE /v2/users/:guid? Delete a Particular User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:1:1:1] # Users Nested endpoints Developer Spaces GET /v2/users/:guid/spaces List all Spaces for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:1:2:1] # Users Nested endpoints Developer Spaces PUT /v2/users/:guid/spaces/:space_guid Associate Space with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:1:3:1] # Users Nested endpoints Developer Spaces DELETE /v2/users/:guid/spaces/:space_guid Remove Space from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:2:1:1] # Users Nested endpoints Managed Spaces GET /v2/users/:guid/managed_spaces List all Managed Spaces for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:2:2:1] # Users Nested endpoints Managed Spaces PUT /v2/users/:guid/managed_spaces/:managed_space_guid Associate Managed Space with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:2:3:1] # Users Nested endpoints Managed Spaces DELETE /v2/users/:guid/managed_spaces/:managed_space_guid Remove Managed Space from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:3:1:1] # Users Nested endpoints Audited Spaces GET /v2/users/:guid/audited_spaces List all Audited Spaces for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:3:2:1] # Users Nested endpoints Audited Spaces PUT /v2/users/:guid/audited_spaces/:audited_space_guid Associate Audited Space with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:3:3:1] # Users Nested endpoints Audited Spaces DELETE /v2/users/:guid/audited_spaces/:audited_space_guid Remove Audited Space from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:4:1:1] # Users Nested endpoints Organizations GET /v2/users/:guid/organizations List all Organizations for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:4:2:1] # Users Nested endpoints Organizations PUT /v2/users/:guid/organizations/:organization_guid Associate Organization with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:4:3:1] # Users Nested endpoints Organizations DELETE /v2/users/:guid/organizations/:organization_guid Remove Organization from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:5:1:1] # Users Nested endpoints Managed Organizations GET /v2/users/:guid/managed_organizations List all Managed Organizations for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:5:2:1] # Users Nested endpoints Managed Organizations PUT /v2/users/:guid/managed_organizations/:managed_organization_guid Associate Managed Organization with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:5:3:1] # Users Nested endpoints Managed Organizations DELETE /v2/users/:guid/managed_organizations/:managed_organization_guid Remove Managed Organization from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:6:1:1] # Users Nested endpoints Billing Managed Organizations GET /v2/users/:guid/billing_managed_organizations List all Billing Managed Organizations for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:6:2:1] # Users Nested endpoints Billing Managed Organizations PUT /v2/users/:guid/billing_managed_organizations/:billing_managed_organization_guid Associate Billing Managed Organization with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:6:3:1] # Users Nested endpoints Billing Managed Organizations DELETE /v2/users/:guid/billing_managed_organizations/:billing_managed_organization_guid Remove Billing Managed Organization from the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:7:1:1] # Users Nested endpoints Audited Organizations GET /v2/users/:guid/audited_organizations List all Audited Organizations for the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:7:2:1] # Users Nested endpoints Audited Organizations PUT /v2/users/:guid/audited_organizations/:audited_organization_guid Associate Audited Organization with the User
+rspec ./spec/api/documentation/users_api_spec.rb[1:2:7:3:1] # Users Nested endpoints Audited Organizations DELETE /v2/users/:guid/audited_organizations/:audited_organization_guid Remove Audited Organization from the User
+rspec ./spec/api/documentation/v3/apps_api_spec.rb:265 # Apps (Experimental) POST /v3/apps Create an App
+rspec ./spec/api/documentation/v3/apps_api_spec.rb:355 # Apps (Experimental) PATCH /v3/apps/:guid Updating an App
+rspec ./spec/api/documentation/v3/apps_api_spec.rb:664 # Apps (Experimental) PUT /v3/apps/:guid/current_droplet Assigning a droplet as an App's current droplet
+rspec ./spec/api/documentation/v3/apps_droplets_api_spec.rb:172 # Apps (Experimental) GET /v3/apps/:guid/droplets faceted search Filters Droplets by states, app_guids
+rspec ./spec/api/documentation/v3/apps_droplets_api_spec.rb:70 # Apps (Experimental) GET /v3/apps/:guid/droplets List associated droplets
+rspec ./spec/api/documentation/v3/packages_api_spec.rb:175 # Packages (Experimental) POST /v3/apps/:guid/packages creating a package Create a Package
+rspec ./spec/api/documentation/v3/packages_api_spec.rb:226 # Packages (Experimental) POST /v3/apps/:guid/packages copying a package Copy a Package
+rspec ./spec/api/documentation/v3/processes_api_spec.rb:152 # Processes (Experimental) PATCH /v3/processes/:guid Updating a Process
+rspec ./spec/api/documentation/v3/processes_api_spec.rb:247 # Processes (Experimental) DELETE /v3/processes/:guid/instances/:index Terminating a Process instance
+rspec ./spec/integration/app_staging_spec.rb:151 # Staging an app when admin buildpacks are used and the admin has uploaded the buildpacks and an app is staged includes the buildpacks in the correct order
+rspec ./spec/integration/app_staging_spec.rb:192 # Staging an app when admin buildpacks are used and the admin has uploaded the buildpacks and an app is staged excludes disabled buildpacks includes enabled buildpacks
+rspec ./spec/integration/app_staging_spec.rb:96 # Staging an app when admin buildpacks are used and the admin has not uploaded yet the buildpacks and an app is staged does not include any buildpacks in the request
+rspec ./spec/integration/cors_spec.rb:101 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns an Access-Control-Allow-Origin header containing the requested origin domain
+rspec ./spec/integration/cors_spec.rb:106 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows credentials to be supplied
+rspec ./spec/integration/cors_spec.rb:111 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns the valid request methods in the Access-Control-Allow-Methods header
+rspec ./spec/integration/cors_spec.rb:118 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns a max-age header with a large value (since these headers rarely change
+rspec ./spec/integration/cors_spec.rb:123 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows custom headers to be returned
+rspec ./spec/integration/cors_spec.rb:129 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows needed request headers to be included
+rspec ./spec/integration/cors_spec.rb:140 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present when the request asks to allow additional request headers allows that by adding them to the Allow-Headers list
+rspec ./spec/integration/cors_spec.rb:156 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin is not in the whitelist does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:162 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin is not in the whitelist delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:170 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin is a subset of a domain in the whitelist, but does not match does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:175 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin is a subset of a domain in the whitelist, but does not match delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:183 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:189 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist returns an Access-Control-Allow-Origin header containing the requested origin domain
+rspec ./spec/integration/cors_spec.rb:195 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist allows credentials to be supplied
+rspec ./spec/integration/cors_spec.rb:201 # CORS v3 rails app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist allows custom headers to be returned
+rspec ./spec/integration/cors_spec.rb:216 # CORS v2 sinatra app when the Origin header is not present does not return any Access-Control headers (the request is not a CORS request)
+rspec ./spec/integration/cors_spec.rb:222 # CORS v2 sinatra app when the Origin header is not present delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:241 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin is not in the whitelist does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:246 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin is not in the whitelist delegates to the initial request ( there is no options method for /v2/info so we get a 404 )
+rspec ./spec/integration/cors_spec.rb:253 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin is a subset of a domain in the whitelist, but does not match does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:258 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin is a subset of a domain in the whitelist, but does not match delegates to the initial request ( there is no options method for /v2/info so we get a 404 )
+rspec ./spec/integration/cors_spec.rb:26 # CORS v3 rails app when the Origin header is not present does not return any Access-Control headers (the request is not a CORS request)
+rspec ./spec/integration/cors_spec.rb:266 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist but no Access-Control-Request-Method header is present does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:273 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns a 200 code and does not process the original request
+rspec ./spec/integration/cors_spec.rb:279 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present sets the Content-Type: text/plain header
+rspec ./spec/integration/cors_spec.rb:286 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present should return a Vary: Origin header to ensure response is not cached for different origins
+rspec ./spec/integration/cors_spec.rb:291 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns an Access-Control-Allow-Origin header containing the requested origin domain
+rspec ./spec/integration/cors_spec.rb:296 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows credentials to be supplied
+rspec ./spec/integration/cors_spec.rb:301 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns the valid request methods in the Access-Control-Allow-Methods header
+rspec ./spec/integration/cors_spec.rb:308 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns a max-age header with a large value (since these headers rarely change
+rspec ./spec/integration/cors_spec.rb:313 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows custom headers to be returned
+rspec ./spec/integration/cors_spec.rb:319 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present allows needed request headers to be included
+rspec ./spec/integration/cors_spec.rb:32 # CORS v3 rails app when the Origin header is not present delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:330 # CORS v2 sinatra app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present when the request asks to allow additional request headers allows that by adding them to the Allow-Headers list
+rspec ./spec/integration/cors_spec.rb:346 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin is not in the whitelist does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:352 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin is not in the whitelist delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:360 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin is a subset of a domain in the whitelist, but does not match does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:365 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin is a subset of a domain in the whitelist, but does not match delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:373 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist delegates to the initial request
+rspec ./spec/integration/cors_spec.rb:379 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist returns an Access-Control-Allow-Origin header containing the requested origin domain
+rspec ./spec/integration/cors_spec.rb:385 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist allows credentials to be supplied
+rspec ./spec/integration/cors_spec.rb:391 # CORS v2 sinatra app when the Origin header is present a simple request or actual request and the origin matches an entry in the whitelist allows custom headers to be returned
+rspec ./spec/integration/cors_spec.rb:51 # CORS v3 rails app when the Origin header is present a preflight request and the origin is not in the whitelist does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:56 # CORS v3 rails app when the Origin header is present a preflight request and the origin is not in the whitelist delegates to the initial request ( there is no options method for /v3/processes so we get a 404 )
+rspec ./spec/integration/cors_spec.rb:63 # CORS v3 rails app when the Origin header is present a preflight request and the origin is a subset of a domain in the whitelist, but does not match does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:68 # CORS v3 rails app when the Origin header is present a preflight request and the origin is a subset of a domain in the whitelist, but does not match delegates to the initial request ( there is no options method for /v3/processes so we get a 404 )
+rspec ./spec/integration/cors_spec.rb:76 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist but no Access-Control-Request-Method header is present does not return any Access-Control headers
+rspec ./spec/integration/cors_spec.rb:83 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present returns a 200 code and does not process the original request
+rspec ./spec/integration/cors_spec.rb:89 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present sets the Content-Type: text/plain header
+rspec ./spec/integration/cors_spec.rb:96 # CORS v3 rails app when the Origin header is present a preflight request and the origin matches a domain in the whitelist and the Access-Control-Request-Method header is present should return a Vary: Origin header to ensure response is not cached for different origins
+rspec ./spec/integration/loggregator_spec.rb:38 # Cloud controller Loggregator Integration send logs to the loggregator
+rspec ./spec/integration/nats_spec.rb:21 # NATS When NATS fails still works
+rspec ./spec/integration/nats_spec.rb:40 # NATS When NATS fails allowed requests creates org, space and app in database
+rspec ./spec/integration/performance_monitoring_spec.rb:51 # Cloud controller when new_relic is enabled when developer_mode is enabled reports the transaction information in /newrelic
+rspec ./spec/integration/performance_monitoring_spec.rb:66 # Cloud controller when new_relic is enabled when developer_mode is not enabled does not report transaction infromation in /newrelic
+rspec ./spec/integration/performance_monitoring_spec.rb:71 # Cloud controller when new_relic is enabled when developer_mode is not enabled loads new relic
+rspec ./spec/integration/performance_monitoring_spec.rb:83 # Cloud controller when new relic is disabled even when developer mode is enabled does not report transaction infromation in /newrelic
+rspec ./spec/integration/performance_monitoring_spec.rb:88 # Cloud controller when new relic is disabled even when developer mode is enabled does not load new relic
+rspec ./spec/integration/varz_spec.rb:14 # Cloud Controller responds to /varz with the expected keys
+rspec ./spec/unit/controllers/base/front_controller_spec.rb:56 # VCAP::CloudController::FrontController logging get request logs request id and status code for all requests
+rspec ./spec/unit/controllers/base/front_controller_spec.rb:63 # VCAP::CloudController::FrontController logging get request logs request id and user guid for all requests
+rspec ./spec/unit/controllers/base/model_controller_spec.rb:553 # VCAP::CloudController::RestController::ModelController error handling model errors returns 400 error for missing attributes; returns a request-id and no location
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:100 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is running and the user is not an admin returns a 403
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:107 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is running and the user is an admin updates the environment_json with the given hash
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:119 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is running and the user is an admin Validations when the json is not valid returns a 400
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:126 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is running and the user is an admin Validations when the json is not valid does not update the group
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:16 # VCAP::CloudController::EnvironmentVariableGroupsController GET /v2/config/environment_variable_groups/:name and the name is running whether or not the user is an admin returns the json as a hash
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:34 # VCAP::CloudController::EnvironmentVariableGroupsController GET /v2/config/environment_variable_groups/:name and the name is staging whether or not the user is an admin returns the json as a hash
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:53 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is not one of running, staging returns a 404
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:62 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is staging and the user is not an admin returns a 403
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:69 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is staging and the user is an admin updates the environment_json with the given hash
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:7 # VCAP::CloudController::EnvironmentVariableGroupsController GET /v2/config/environment_variable_groups/:name when the name is not one of running, staging returns a 404
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:81 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is staging and the user is an admin Validations when the json is not valid returns a 400
+rspec ./spec/unit/controllers/runtime/environment_variable_groups_controller_spec.rb:88 # VCAP::CloudController::EnvironmentVariableGroupsController PUT /v2/config/environment_variable_groups/:name when the name is staging and the user is an admin Validations when the json is not valid does not update the group
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:109 # VCAP::CloudController::FeatureFlagsController GET /v2/config/feature_flags when there are overrides returns the defaults, overridden where needed
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:147 # VCAP::CloudController::FeatureFlagsController GET /v2/config/feature_flags/:name when there are no overrides returns the flag with the default value
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:164 # VCAP::CloudController::FeatureFlagsController GET /v2/config/feature_flags/:name when there are overrides returns the overridden value
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:179 # VCAP::CloudController::FeatureFlagsController GET /v2/config/feature_flags/:name when the flag does not exist returns 404
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:23 # VCAP::CloudController::FeatureFlagsController PUT /v2/config/feature_flags/:name when the user is an admin and the flag is in the default feature flags and the flag was previously set sets the feature flag to the specified value
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:36 # VCAP::CloudController::FeatureFlagsController PUT /v2/config/feature_flags/:name when the user is an admin and the flag is not a default feature flag returns a 404
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:46 # VCAP::CloudController::FeatureFlagsController PUT /v2/config/feature_flags/:name when the user is an admin and the feature flag is invalid responds to user with FeatureFlagInvalid
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:57 # VCAP::CloudController::FeatureFlagsController PUT /v2/config/feature_flags/:name when the user is not an admin returns a 403
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:77 # VCAP::CloudController::FeatureFlagsController GET /v2/config/feature_flags when there are no overrides returns all the flags with their default values
+rspec ./spec/unit/controllers/runtime/feature_flags_controller_spec.rb:9 # VCAP::CloudController::FeatureFlagsController PUT /v2/config/feature_flags/:name when the user is an admin and the flag is in the default feature flags and the flag was NOT previously set sets the feature flag to the specified value
+rspec ./spec/unit/controllers/runtime/users_controller_spec.rb:5 # VCAP::CloudController::UsersController doesn't query all users when unauthorized
+rspec ./spec/unit/controllers/v3/application_controller_spec.rb:240 # ApplicationController application/json content type validation is required on other actions
+rspec ./spec/unit/controllers/v3/apps_droplets_controller_spec.rb:19 # AppsDropletsController#index returns droplets the user has roles to see
+rspec ./spec/unit/controllers/v3/apps_droplets_controller_spec.rb:61 # AppsDropletsController#index admin the app exists returns a 200 and all droplets belonging to the app
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:15 # DropletsController#show returns a 200 OK and the droplet
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:196 # DropletsController#index returns 200
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:201 # DropletsController#index lists the droplets visible to the user
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:208 # DropletsController#index returns pagination links for /v3/droplets
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:218 # DropletsController#index when the user is an admin returns all droplets
+rspec ./spec/unit/controllers/v3/droplets_controller_spec.rb:28 # DropletsController#show admin returns a 200 OK and the droplet
+rspec ./spec/unit/controllers/v3/errors_controller_spec.rb:19 # ErrorsController#internal_error returns the error from the request env in action_dispatch.exception
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:181 # ProcessesController#update updates the process and returns the correct things
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:197 # ProcessesController#update admin updates the process and returns the correct things
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:209 # ProcessesController#update when the process does not exist raises an ApiError with a 404 code
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:233 # ProcessesController#update when the process is invalid returns 422
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:259 # ProcessesController#update when the user cannot read the process raises 404
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:278 # ProcessesController#update when the user cannot update the process due to membership raises an ApiError with a 403 code
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:301 # ProcessesController#terminate terminates the lone process
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:317 # ProcessesController#terminate admin terminates the lone process
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:328 # ProcessesController#terminate returns a 404 if process does not exist
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:336 # ProcessesController#terminate returns a 404 if instance index out of bounds
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:360 # ProcessesController#terminate when the user cannot read the process raises 404
+rspec ./spec/unit/controllers/v3/processes_controller_spec.rb:379 # ProcessesController#terminate when the user cannot update the process due to membership raises an ApiError with a 403 code
+rspec ./spec/unit/lib/cloud_controller/blobstore/client_spec.rb:763 # CloudController::Blobstore::Client downloading without mocking from a CDN correctly downloads byte streams
+rspec ./spec/unit/lib/cloud_controller/controller_factory_spec.rb:45 # CloudController::ControllerFactory#create_controller instantiates a ProcessController
+rspec ./spec/unit/lib/cloud_controller/metrics/request_metrics_spec.rb:10 # VCAP::CloudController::Metrics::RequestMetrics initializing inits varz
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:108 # Sinatra::VCAP accessing a route that throws a low level exception should return 500
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:117 # Sinatra::VCAP accessing a route that throws a low level exception should add an entry to varz recent errors
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:135 # Sinatra::VCAP accessing a route that throws a vcap error should return 400
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:139 # Sinatra::VCAP accessing a route that throws a vcap error should return structure
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:154 # Sinatra::VCAP accessing a route that throws a StructuredError should return 418
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:158 # Sinatra::VCAP accessing a route that throws a StructuredError should return structure
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:172 # Sinatra::VCAP request id should access the request id via VCAP::Request.current_id from the request env cf.request_id
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:176 # Sinatra::VCAP request id unsets the vcap request current_id after the request completes
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:190 # Sinatra::VCAP current request information for diagnostics populates the correct request id
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:194 # Sinatra::VCAP current request information for diagnostics populates the request uri and method
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:79 # Sinatra::VCAP access with no errors should return success
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb:93 # Sinatra::VCAP accessing an invalid route should return a 404
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb[1:1:2] # Sinatra::VCAP access with no errors should return json content type in the header
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb[1:2:2] # Sinatra::VCAP accessing an invalid route should return json content type in the header
+rspec ./spec/unit/lib/sinatra/vcap_spec.rb[1:3:3] # Sinatra::VCAP accessing a route that throws a low level exception should return json content type in the header

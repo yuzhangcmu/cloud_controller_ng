@@ -18,7 +18,10 @@ describe AppsDropletsController, type: :controller do
 
     it 'returns droplets the user has roles to see' do
       droplet_1 = VCAP::CloudController::DropletModel.make(app_guid: app_guid)
+      droplet_1.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
       droplet_2 = VCAP::CloudController::DropletModel.make(app_guid: app_guid)
+      droplet_2.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+
       VCAP::CloudController::DropletModel.make
 
       get :index, guid: app_model.guid
@@ -60,7 +63,10 @@ describe AppsDropletsController, type: :controller do
       context 'the app exists' do
         it 'returns a 200 and all droplets belonging to the app' do
           droplet_1 = VCAP::CloudController::DropletModel.make(app_guid: app_guid)
+          droplet_1.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
           droplet_2 = VCAP::CloudController::DropletModel.make(app_guid: app_guid)
+          droplet_2.buildpack_lifecycle_data = VCAP::CloudController::BuildpackLifecycleDataModel.make
+
           VCAP::CloudController::DropletModel.make
 
           get :index, guid: app_model.guid

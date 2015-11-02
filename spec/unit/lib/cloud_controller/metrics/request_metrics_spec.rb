@@ -24,6 +24,7 @@ module VCAP::CloudController::Metrics
         RequestMetrics.new(statsd_client)
 
         VCAP::Component.varz.synchronize do
+          actual = VCAP::Component.varz[:vcap_sinatra]
           expect(VCAP::Component.varz[:vcap_sinatra]).to include(expected)
         end
       end

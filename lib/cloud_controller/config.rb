@@ -310,6 +310,11 @@ module VCAP::CloudController
         run_initializers_in_directory(config, '../../../config/initializers/*.rb')
         if config[:newrelic_enabled]
           require 'newrelic_rpm'
+
+          # We need to explicitly initialize NewRelic before running our initializers
+          # When Rails is present, NewRelic adds itself to the Rails initializers instead
+          # of initializing immediately.
+          NewRelic::Agent.manual_start
           run_initializers_in_directory(config, '../../../config/newrelic/initializers/*.rb')
         end
         @initialized = true

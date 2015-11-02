@@ -35,6 +35,7 @@ class ProcessesController < ApplicationController
   end
 
   def update
+    guid = params[:guid]
     message = ProcessUpdateMessage.create_from_http_request(params[:body])
     unprocessable!(message.errors.full_messages) unless message.valid?
 
@@ -50,6 +51,7 @@ class ProcessesController < ApplicationController
   end
 
   def terminate
+    process_guid = params[:guid]
     process = ProcessModel.where(guid: process_guid).eager(:space, :organization).all.first
     not_found! if process.nil? || !can_read?(process.space.guid, process.organization.guid)
     unauthorized! unless can_terminate?(process.space.guid)
