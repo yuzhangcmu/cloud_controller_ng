@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 require 'rspec_api_documentation/dsl'
 
 resource 'Files', type: [:api, :legacy_api] do

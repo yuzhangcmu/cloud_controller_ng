@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
+
 require 'awesome_print'
 require 'rspec_api_documentation/dsl'
 

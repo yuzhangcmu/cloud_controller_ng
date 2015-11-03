@@ -29,6 +29,8 @@ require 'rspec/collection_matchers'
 require 'rspec/its'
 require 'rspec/rails'
 
+require 'documentation_helper'
+
 VCAP::CloudController::SpecBootstrap.init
 
 Dir[File.expand_path('support/**/*.rb', File.dirname(__FILE__))].each { |file| require file }
@@ -55,6 +57,10 @@ RSpec.configure do |rspec_config|
   rspec_config.expose_current_running_example_as :example # Can be removed when we upgrade to rspec 3
 
   Delayed::Worker.plugins << DeserializationRetry
+
+  rspec_config.before(:each, type: :api) do
+    VCAP::CloudController::DocumentationConfigure.configure!(self)
+  end
 
   rspec_config.before :each do
     Fog::Mock.reset
@@ -95,6 +101,6 @@ RSpec.configure do |rspec_config|
     c.api_name = 'Cloud Foundry API'
     c.template_path = 'spec/api/documentation/templates'
     c.curl_host = 'https://api.[your-domain.com]'
-    c.app = Rails.application.app
   end
+
 end

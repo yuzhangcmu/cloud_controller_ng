@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 require 'awesome_print'
 require 'rspec_api_documentation/dsl'
 
@@ -171,6 +172,7 @@ resource 'Packages (Experimental)', type: :api do
 
       body_parameter :type, 'Package type', required: true, valid_values: ['bits', 'docker']
       body_parameter :url, 'Url of docker image', required: false
+      header 'Content-Type', 'application/json'
 
       example 'Create a Package' do
         expect {

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/v3/apps', to: 'apps_v3#create'
   get '/v3/apps/:guid', to: 'apps_v3#show'
   put '/v3/apps/:guid', to: 'apps_v3#update'
+  patch '/v3/apps/:guid', to: 'apps_v3#update'
   delete '/v3/apps/:guid', to: 'apps_v3#destroy'
   put '/v3/apps/:guid/start', to: 'apps_v3#start'
   put '/v3/apps/:guid/stop', to: 'apps_v3#stop'
@@ -44,7 +45,7 @@ Rails.application.routes.draw do
   get '/v3/apps/:guid/packages', to: 'apps_packages#index'
   post '/v3/apps/:guid/packages', to: 'apps_packages#create'
 
-  post '/v3/apps/:guid/droplets', to: 'apps_droplets#index'
+  get '/v3/apps/:guid/droplets', to: 'apps_droplets#index'
 
   match '404', :to => 'errors#not_found', via: :all
   match '500', :to => 'errors#internal_error', via: :all

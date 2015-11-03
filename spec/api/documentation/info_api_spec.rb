@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 require 'rspec_api_documentation/dsl'
 
 resource 'Info', type: [:api, :legacy_api] do

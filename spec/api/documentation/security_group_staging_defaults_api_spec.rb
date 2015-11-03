@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 require 'rspec_api_documentation/dsl'
 
 resource 'Security Group Staging Defaults', type: [:api, :legacy_api] do
