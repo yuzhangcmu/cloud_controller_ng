@@ -82,6 +82,7 @@ module VCAP::CloudController
     end
 
     def run!
+      p 'run cc'
       EM.run do
         begin
           message_bus = MessageBus::Configurer.new(servers: @config[:message_bus_servers], logger: logger).go

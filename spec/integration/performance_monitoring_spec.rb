@@ -17,7 +17,7 @@ describe 'Cloud controller', type: :integration, monitoring: true do
     FileUtils.rm_f('/tmp/newrelic/development.log')
     start_nats(debug: false)
     opts = {
-      debug: false,
+      debug: '/tmp/cc_out.log',
       config: cc_config_file.path,
       env: {
         'NRCONFIG' => newrelic_config_file,

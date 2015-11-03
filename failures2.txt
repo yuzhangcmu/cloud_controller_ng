@@ -371,10 +371,8 @@ rspec ./spec/integration/performance_monitoring_spec.rb:66 # Cloud controller wh
 rspec ./spec/integration/performance_monitoring_spec.rb:71 # Cloud controller when new_relic is enabled when developer_mode is not enabled loads new relic
 rspec ./spec/integration/performance_monitoring_spec.rb:83 # Cloud controller when new relic is disabled even when developer mode is enabled does not report transaction infromation in /newrelic
 rspec ./spec/integration/performance_monitoring_spec.rb:88 # Cloud controller when new relic is disabled even when developer mode is enabled does not load new relic
-rspec ./spec/integration/varz_spec.rb:14 # Cloud Controller responds to /varz with the expected keys
-rspec ./spec/unit/controllers/base/front_controller_spec.rb:56 # VCAP::CloudController::FrontController logging get request logs request id and status code for all requests
-rspec ./spec/unit/controllers/base/front_controller_spec.rb:63 # VCAP::CloudController::FrontController logging get request logs request id and user guid for all requests
 
+rspec ./spec/integration/varz_spec.rb:14 # Cloud Controller responds to /varz with the expected keys
 rspec ./spec/unit/controllers/internal/listbuildpacks_controller_spec.rb:56 # VCAP::CloudController::ListBuildpacksController with a set of buildpacks returns all the buildpacks
 rspec ./spec/unit/controllers/runtime/users_controller_spec.rb:5 # VCAP::CloudController::UsersController doesn't query all users when unauthorized
 rspec ./spec/unit/controllers/v3/errors_controller_spec.rb:19 # ErrorsController#internal_error returns the error from the request env in action_dispatch.exception
