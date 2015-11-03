@@ -393,6 +393,53 @@ module VCAP::CloudController
           expect(decoded_response['description']).to match(/route_creation/)
         end
       end
+
+      context 'query params' do
+        context 'generate_port' do
+          it 'fails with InvalidRequest when generate_port is not "true" or "false"' do
+            post '/v2/routes?generate_port=lol', MultiJson.dump(req), headers_for(user)
+
+            expect(last_response.status).to eq(400)
+          end
+
+          context 'the body does not provide a port' do
+            let(:port) { nil }
+
+            context 'generate_port is "true"' do
+              it 'generates a port without warning' do
+                post '/v2/routes?generate_port=true', MultiJson.dump(req), headers_for(user)
+
+                expect(last_response.status).to eq(201)
+              end
+            end
+
+            context 'generate_port is "false"' do
+              it 'creates a route without a port' do
+                # post '/v2/routes?generate_port=false', MultiJson.dump(req), headers_for(user)
+                #
+                # expect(last_response.status).to eq(201)
+                # expect(last_response.body).not_to include('port')
+              end
+            end
+          end
+
+          context 'body provides a port' do
+            # before do
+            #
+            # end
+            #
+            # it 'returns a warning if a port is provided in the body' do
+            #
+            # end
+
+            # it 'creates a route with the port provided in the body' do
+            #   post '/v2/routes?generate_port=false', MultiJson.dump(req), headers_for(user)
+            #
+            #   expect(last_response.status).to eq(400)
+            # end
+          end
+        end
+      end
     end
 
     describe 'PUT /v2/routes/:guid' do

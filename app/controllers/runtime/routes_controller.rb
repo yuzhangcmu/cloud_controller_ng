@@ -64,16 +64,17 @@ module VCAP::CloudController
 
       logger.debug 'cc.create', model: self.class.model_class_name, attributes: redact_attributes(:create, request_attrs)
 
+      overwrite_port! if convert_flag_to_bool(params['generate_port'])
+
       before_create
 
-      generate_port! if params['generate_port']
-      obj = model.create_from_hash(request_attrs)
-      validate_access(:create, obj, request_attrs)
+      route = model.create_from_hash(request_attrs)
+      validate_access(:create, route, request_attrs)
 
       [
           HTTP::CREATED,
-          { 'Location' => "#{self.class.path}/#{obj.guid}" },
-          object_renderer.render_json(self.class, obj, @opts)
+          { 'Location' => "#{self.class.path}/#{route.guid}" },
+          object_renderer.render_json(self.class, route, @opts)
       ]
     end
 
@@ -143,8 +144,15 @@ module VCAP::CloudController
 
   private
 
-  def generate_port!
-    request_attrs['port'] = PortGenerator.new(request_attrs).generate_port
+  def overwrite_port!
+    @request_attrs = @request_attrs.deep_dup
+    @request_attrs['port'] = PortGenerator.new(@request_attrs).generate_port
+    @request_attrs.freeze
+  end
+
+  def convert_flag_to_bool(flag)
+    raise Errors::ApiError.new_from_details('InvalidRequest') unless ['true', 'false', nil].include? flag
+    flag == 'true'
   end
 
   def validate_tcp_route(domain_guid)

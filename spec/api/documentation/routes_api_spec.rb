@@ -1,10 +1,10 @@
 require 'spec_helper'
 require 'rspec_api_documentation/dsl'
 
-resource 'Routes', type: [:api, :legacy_api] do
-  let(:admin_auth_header) { admin_headers['HTTP_AUTHORIZATION'] }
-  let(:space) { VCAP::CloudController::Space.make }
-  let(:domain) { VCAP::CloudController::SharedDomain.make(router_group_guid: 'tcp-group') }
+  resource 'Routes', type: [:api, :legacy_api] do
+    let(:admin_auth_header) { admin_headers['HTTP_AUTHORIZATION'] }
+    let(:space) { VCAP::CloudController::Space.make }
+    let(:domain) { VCAP::CloudController::SharedDomain.make(router_group_guid: 'tcp-group') }
   let(:route_path) { '/apps/v1/path' }
   let(:service_instance) { VCAP::CloudController::ManagedServiceInstance.make(:routing, space: space) }
   let(:route) { VCAP::CloudController::Route.make(domain: domain, space: space) }
