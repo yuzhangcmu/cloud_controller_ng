@@ -127,7 +127,7 @@ module VCAP::CloudController
       domain_guid = request_attrs['domain_guid']
       return if domain_guid.nil?
 
-      validate_tcp_route(domain_guid)
+      validate_route(domain_guid)
     end
 
     def before_update(route)
@@ -135,7 +135,7 @@ module VCAP::CloudController
 
       return if request_attrs['app']
 
-      validate_tcp_route(route.domain.guid) if request_attrs['port'] != route.port
+      validate_route(route.domain.guid) if request_attrs['port'] != route.port
     end
 
     define_messages
@@ -145,6 +145,10 @@ module VCAP::CloudController
   private
 
   def overwrite_port!
+    if @request_attrs['port']
+      add_warning("Specified port ignored. Random port generated.")
+    end
+
     @request_attrs = @request_attrs.deep_dup
     @request_attrs['port'] = PortGenerator.new(@request_attrs).generate_port
     @request_attrs.freeze
@@ -155,7 +159,7 @@ module VCAP::CloudController
     flag == 'true'
   end
 
-  def validate_tcp_route(domain_guid)
+  def validate_route(domain_guid)
     RouteValidator.new(@routing_api_client, domain_guid, assemble_route_attrs).validate
   rescue RouteValidator::ValidationError => e
     raise Errors::ApiError.new_from_details(e.class.name.demodulize, e.message)
