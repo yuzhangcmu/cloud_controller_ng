@@ -62,7 +62,7 @@ module VCAP::CloudController
             diego:                   { type: 'bool' },
             docker_image:            { type: 'string', required: false },
             docker_credentials_json: { type: 'hash', default: {} },
-            ports:                   { type: '[integer]' }
+            ports:                   { type: '[integer]', default: [8080] }
           })
       end
 

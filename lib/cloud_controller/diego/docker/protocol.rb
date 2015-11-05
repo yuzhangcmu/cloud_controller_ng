@@ -68,6 +68,7 @@ module VCAP::CloudController
             'egress_rules' => @common_protocol.running(app),
             'etag' => app.updated_at.to_f.to_s,
             'allow_ssh' => app.enable_ssh,
+            'ports' => app.ports
           }
         end
 
