@@ -55,16 +55,18 @@ module VCAP::CloudController
         end
 
         it 'logs request id and status code for all requests' do
-          get '/test_front_endpoint', '', {}
+          get '/test_front_endpoint/some-guid', '', {}
           request_id = last_response.headers['X-Vcap-Request-Id']
           request_status = last_response.status.to_s
-          expect(fake_logger).to have_received(:info).with("Completed request, Vcap-Request-Id: #{request_id}, Status: #{request_status}")
+          expect(fake_logger).to have_received(:info).with(
+            "Completed request, Vcap-Request-Id: #{request_id}, Status: #{request_status}, Requested Route: /test_front_endpoint/some-guid")
         end
 
         it 'logs request id and user guid for all requests' do
-          get '/test_front_endpoint', '', {}
+          get '/test_front_endpoint/some-guid', '', {}
           request_id = last_response.headers['X-Vcap-Request-Id']
-          expect(fake_logger).to have_received(:info).with("Started request, Vcap-Request-Id: #{request_id}, User: fake-user-id")
+          expect(fake_logger).to have_received(:info).with(
+            "Started request, Vcap-Request-Id: #{request_id}, User: fake-user-id, Requested Route: /test_front_endpoint/some-guid")
         end
       end
     end
