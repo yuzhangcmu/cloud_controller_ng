@@ -26,7 +26,7 @@ module VCAP::CloudController
     get '/v3/packages', :list
     def list
       check_read_permissions!
-
+aoo
       message = PackagesListMessage.from_params(params)
       invalid_param!(message.errors.full_messages) unless message.valid?
 
@@ -46,6 +46,14 @@ module VCAP::CloudController
 
       [HTTP::OK, @package_presenter.present_json_list(paginated_result, '/v3/packages')]
     end
+
+     post '/v3/uploadtest/:guid', :upload_test
+     def upload_test(guid)
+     set_header('Location',"http://api.bosh-lite.com/v3/packages/#{guid}/upload")
+     [307, "http://api.bosh-lite.com/v3/packages/#{guid}/upload"]
+     end
+
+
 
     post '/v3/packages/:guid/upload', :upload
     def upload(package_guid)
